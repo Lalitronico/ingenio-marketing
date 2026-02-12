@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ingenio Marketing — A su alcance</title>
-  <meta name="description" content="Ingenio Marketing: Consultoría de Marketing, Investigación e Inteligencia de Mercados para el sector inmobiliario. Más de 30 años de experiencia.">
+  <meta name="description" content="Ingenio Marketing: Consultoría de Marketing, Investigación e Inteligencia de Mercados. Más de 30 años de experiencia ayudando a empresas a tomar mejores decisiones basadas en datos.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -409,85 +409,37 @@
       opacity: 0.2;
     }
 
-    /* ========== SECTORS ========== */
-    .sectors {
+    /* ========== CLIENTS ========== */
+    .clients {
       padding: var(--section-padding);
       background: var(--gray-50);
     }
-    .sectors-header { text-align: center; margin-bottom: 64px; }
-    .sectors-header .section-subtitle { margin: 0 auto; }
-    .sectors-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 24px;
-    }
-    .sector-card {
-      background: var(--white);
-      border-radius: 16px;
-      padding: 36px 24px;
-      text-align: center;
-      transition: transform 0.3s, box-shadow 0.3s;
-      border: 1px solid var(--gray-100);
-    }
-    .sector-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(30,43,77,0.08);
-    }
-    .sector-icon {
-      width: 56px;
-      height: 56px;
-      margin: 0 auto 20px;
-      background: var(--gray-50);
-      border-radius: 14px;
+    .clients-header { text-align: center; margin-bottom: 48px; }
+    .clients-grid {
       display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .sector-icon svg {
-      width: 28px;
-      height: 28px;
-      stroke: var(--cyan);
-      fill: none;
-      stroke-width: 1.5;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-    .sector-card h3 {
-      font-family: var(--font-heading);
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--navy);
-    }
-
-    /* ========== FOCUS PILLS ========== */
-    .focus-row {
-      display: flex;
+      flex-wrap: wrap;
       justify-content: center;
       gap: 16px;
-      margin-top: 48px;
-      flex-wrap: wrap;
+      max-width: 960px;
+      margin: 0 auto;
     }
-    .focus-pill {
-      display: flex;
-      align-items: center;
-      gap: 8px;
+    .client-tag {
       background: var(--white);
       border: 1px solid var(--gray-200);
-      padding: 12px 24px;
-      border-radius: 50px;
+      border-radius: 10px;
+      padding: 14px 24px;
       font-family: var(--font-heading);
-      font-size: 0.85rem;
-      font-weight: 500;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--gray-400);
+      letter-spacing: 0.5px;
+      transition: color 0.3s, border-color 0.3s, box-shadow 0.3s;
+    }
+    .client-tag:hover {
       color: var(--navy);
+      border-color: var(--cyan);
+      box-shadow: 0 4px 16px rgba(0,168,232,0.08);
     }
-    .focus-pill .pill-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-    }
-    .pill-dot.coral { background: var(--coral); }
-    .pill-dot.cyan { background: var(--cyan); }
-    .pill-dot.orange { background: var(--orange); }
 
     /* ========== SOLUTIONS ========== */
     .solutions { padding: var(--section-padding); background: var(--white); }
@@ -495,7 +447,7 @@
     .solutions-header .section-subtitle { margin: 0 auto; }
     .solutions-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       gap: 20px;
     }
     .solution-card {
@@ -898,7 +850,6 @@
 
     /* ========== RESPONSIVE ========== */
     @media (max-width: 1024px) {
-      .sectors-grid { grid-template-columns: repeat(3, 1fr); }
       .solutions-grid { grid-template-columns: repeat(3, 1fr); }
       .model-flow { grid-template-columns: repeat(3, 1fr); }
     }
@@ -928,7 +879,6 @@
       .about-grid { grid-template-columns: 1fr; gap: 40px; }
       .about-visual { order: -1; }
 
-      .sectors-grid { grid-template-columns: repeat(2, 1fr); }
       .solutions-grid { grid-template-columns: repeat(2, 1fr); }
       .model-flow { grid-template-columns: repeat(2, 1fr); }
       .pillars { grid-template-columns: 1fr; }
@@ -941,7 +891,6 @@
 
     @media (max-width: 480px) {
       .hero h1 { font-size: 1.7rem; letter-spacing: 3px; }
-      .sectors-grid { grid-template-columns: 1fr; }
       .solutions-grid { grid-template-columns: 1fr; }
       .model-flow { grid-template-columns: 1fr; }
       .contact-form-wrapper { padding: 24px; }
@@ -964,9 +913,9 @@
       </a>
       <div class="nav-links" id="navLinks">
         <a href="#about">Nosotros</a>
-        <a href="#sectors">Sectores</a>
         <a href="#solutions">Soluciones</a>
         <a href="#services">Servicios</a>
+        <a href="#clients">Clientes</a>
         <a href="#contact" class="nav-cta">Contacto</a>
       </div>
       <button class="menu-toggle" id="menuToggle" aria-label="Menu">
@@ -1014,12 +963,12 @@
       <div class="about-grid">
         <div class="about-text reveal">
           <p class="section-label">Sobre Nosotros</p>
-          <h2 class="section-title">Estrategia, datos<br>y marketing con prop&oacute;sito</h2>
-          <p><strong>Ingenio Marketing</strong> es una consultora especializada en marketing estrat&eacute;gico, investigaci&oacute;n e inteligencia de mercados. Dise&ntilde;amos estrategias basadas en datos reales que conectan marcas con sus audiencias y convierten oportunidades en resultados medibles.</p>
-          <p>Desde el an&aacute;lisis de mercado hasta la ejecuci&oacute;n de campa&ntilde;as integrales, acompa&ntilde;amos a nuestros clientes en cada etapa para que tomen decisiones informadas y potencien el crecimiento de sus proyectos.</p>
+          <h2 class="section-title">Informaci&oacute;n confiable<br>para decisiones inteligentes</h2>
+          <p><strong>Ingenio Marketing</strong> surge con el objetivo de guiar a sus clientes a tomar las mejores decisiones. Apoyamos y asesoramos en temas de mercado, con el fin de que nuestros clientes se enfoquen en la construcci&oacute;n y desarrollo de sus proyectos, brindando informaci&oacute;n oportuna y confiable que asegure el &eacute;xito de sus proyectos.</p>
+          <p>Trabajamos con empresas de todos los sectores &mdash;consumo, retail, industria, gobierno, servicios financieros, salud, inmobiliario, energ&iacute;a&mdash; ayud&aacute;ndolas a competir mejor con inteligencia de mercado.</p>
           <div class="about-highlight">
             <div class="about-highlight-number">+30<span> a&ntilde;os</span></div>
-            <div class="about-highlight-text">creando estrategias de marketing, construyendo marcas s&oacute;lidas y generando inteligencia de mercado</div>
+            <div class="about-highlight-text">de experiencia contribuyendo al desarrollo y solidez de marcas en m&uacute;ltiples sectores</div>
           </div>
         </div>
         <div class="about-visual reveal">
@@ -1037,61 +986,13 @@
     </div>
   </section>
 
-  <!-- ========== SECTORS ========== -->
-  <section class="sectors" id="sectors">
-    <div class="container">
-      <div class="sectors-header reveal">
-        <p class="section-label">Sectores</p>
-        <h2 class="section-title">Proyectos y Soluciones Inmobiliarias</h2>
-        <p class="section-subtitle">Atendemos los principales sectores del desarrollo inmobiliario con soluciones integrales y especializadas.</p>
-      </div>
-      <div class="sectors-grid">
-        <div class="sector-card reveal">
-          <div class="sector-icon">
-            <svg viewBox="0 0 24 24"><path d="M3 21V9l9-6 9 6v12H3z"/><path d="M9 21V13h6v8"/></svg>
-          </div>
-          <h3>Habitacional</h3>
-        </div>
-        <div class="sector-card reveal">
-          <div class="sector-icon">
-            <svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="1"/><path d="M9 6h2m-2 4h2m-2 4h2m4-8h2m-2 4h2m-2 4h2"/></svg>
-          </div>
-          <h3>Usos Mixtos</h3>
-        </div>
-        <div class="sector-card reveal">
-          <div class="sector-icon">
-            <svg viewBox="0 0 24 24"><path d="M2 20h20"/><path d="M4 20V8h6v12"/><path d="M14 20V4h6v16"/><path d="M6 11h2m-2 3h2m6-10h2m-2 3h2m-2 3h2"/></svg>
-          </div>
-          <h3>Industrial</h3>
-        </div>
-        <div class="sector-card reveal">
-          <div class="sector-icon">
-            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg>
-          </div>
-          <h3>Oficinas</h3>
-        </div>
-        <div class="sector-card reveal">
-          <div class="sector-icon">
-            <svg viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-4h6v4"/><path d="M9 10h.01M15 10h.01M9 14h.01M15 14h.01"/></svg>
-          </div>
-          <h3>Centros y Plazas Comerciales</h3>
-        </div>
-      </div>
-      <div class="focus-row reveal">
-        <div class="focus-pill"><div class="pill-dot coral"></div> Vendedores</div>
-        <div class="focus-pill"><div class="pill-dot cyan"></div> Consumidores</div>
-        <div class="focus-pill"><div class="pill-dot orange"></div> Productos</div>
-      </div>
-    </div>
-  </section>
-
   <!-- ========== SOLUTIONS ========== -->
   <section class="solutions" id="solutions">
     <div class="container">
       <div class="solutions-header reveal">
         <p class="section-label">Lo que hacemos</p>
         <h2 class="section-title">Soluciones a tu Medida</h2>
-        <p class="section-subtitle">Cada proyecto es &uacute;nico. Ofrecemos servicios dise&ntilde;ados espec&iacute;ficamente para las necesidades de tu desarrollo.</p>
+        <p class="section-subtitle">Cada proyecto es &uacute;nico. Dise&ntilde;amos soluciones espec&iacute;ficas para las necesidades de tu empresa y tu mercado.</p>
       </div>
       <div class="solutions-grid">
         <div class="solution-card reveal"><div class="solution-number">01</div><h3>Pruebas de Concepto</h3><div class="line"></div></div>
@@ -1099,13 +1000,11 @@
         <div class="solution-card reveal"><div class="solution-number">03</div><h3>An&aacute;lisis Entorno Competitivo</h3><div class="line"></div></div>
         <div class="solution-card reveal"><div class="solution-number">04</div><h3>Detecci&oacute;n de Oportunidades</h3><div class="line"></div></div>
         <div class="solution-card reveal"><div class="solution-number">05</div><h3>Plan de Mercadotecnia</h3><div class="line"></div></div>
-        <div class="solution-card reveal"><div class="solution-number">06</div><h3>Mezclas de Vivienda</h3><div class="line"></div></div>
-        <div class="solution-card reveal"><div class="solution-number">07</div><h3>Ideas de Consultor&iacute;a</h3><div class="line"></div></div>
-        <div class="solution-card reveal"><div class="solution-number">08</div><h3>Proyectos</h3><div class="line"></div></div>
-        <div class="solution-card reveal"><div class="solution-number">09</div><h3>Modelos de Negocio</h3><div class="line"></div></div>
-        <div class="solution-card reveal"><div class="solution-number">10</div><h3>Productos Inmobiliarios</h3><div class="line"></div></div>
-        <div class="solution-card reveal"><div class="solution-number">11</div><h3>Investigaci&oacute;n de Mercado</h3><div class="line"></div></div>
-        <div class="solution-card reveal"><div class="solution-number">12</div><h3>Investigaci&oacute;n Financiera</h3><div class="line"></div></div>
+        <div class="solution-card reveal"><div class="solution-number">06</div><h3>Ideas de Consultor&iacute;a</h3><div class="line"></div></div>
+        <div class="solution-card reveal"><div class="solution-number">07</div><h3>Proyectos</h3><div class="line"></div></div>
+        <div class="solution-card reveal"><div class="solution-number">08</div><h3>Modelos de Negocio</h3><div class="line"></div></div>
+        <div class="solution-card reveal"><div class="solution-number">09</div><h3>Investigaci&oacute;n de Mercado</h3><div class="line"></div></div>
+        <div class="solution-card reveal"><div class="solution-number">10</div><h3>Investigaci&oacute;n Financiera</h3><div class="line"></div></div>
       </div>
     </div>
   </section>
@@ -1116,18 +1015,17 @@
       <div class="model-header reveal">
         <p class="section-label" style="color: var(--coral);">Metodolog&iacute;a</p>
         <h2 class="section-title light">Modelo de Trabajo</h2>
-        <p class="section-subtitle light" style="margin: 0 auto;">Un enfoque integral y sistem&aacute;tico para garantizar el &eacute;xito de cada proyecto inmobiliario.</p>
+        <p class="section-subtitle light" style="margin: 0 auto;">Un enfoque integral y sistem&aacute;tico para garantizar el &eacute;xito de cada proyecto.</p>
       </div>
       <div class="model-flow">
         <div class="model-step reveal"><div class="model-step-num">01</div><h3>An&aacute;lisis de Oferta y Demanda</h3></div>
-        <div class="model-step reveal"><div class="model-step-num">02</div><h3>Factibilidad Inmobiliaria</h3></div>
+        <div class="model-step reveal"><div class="model-step-num">02</div><h3>Factibilidad de Mercado</h3></div>
         <div class="model-step reveal"><div class="model-step-num">03</div><h3>Benchmarking</h3></div>
         <div class="model-step reveal"><div class="model-step-num">04</div><h3>Evaluaci&oacute;n de Est&aacute;ndares de Servicio</h3></div>
         <div class="model-step reveal"><div class="model-step-num">05</div><h3>Atractividad de Mercado</h3></div>
         <div class="model-step reveal"><div class="model-step-num">06</div><h3>Oportunidades de Negocio</h3></div>
         <div class="model-step reveal"><div class="model-step-num">07</div><h3>Monitoreo de Competencia</h3></div>
-        <div class="model-step reveal"><div class="model-step-num">08</div><h3>Absorci&oacute;n Hist&oacute;rica / Real Mensual</h3></div>
-        <div class="model-step reveal"><div class="model-step-num">09</div><h3>Mayor y Mejor Uso</h3></div>
+        <div class="model-step reveal"><div class="model-step-num">08</div><h3>Mayor y Mejor Uso</h3></div>
       </div>
     </div>
   </section>
@@ -1138,7 +1036,7 @@
       <div class="services-header reveal">
         <p class="section-label">Servicios</p>
         <h2 class="section-title">Servicios Integrales</h2>
-        <p class="section-subtitle">Tres pilares que sustentan nuestra propuesta de valor para el sector inmobiliario.</p>
+        <p class="section-subtitle">Tres pilares que sustentan nuestra propuesta de valor para empresas de todos los sectores.</p>
       </div>
       <div class="pillars">
         <div class="pillar reveal">
@@ -1146,7 +1044,7 @@
             <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
           </div>
           <h3>Consultor&iacute;a</h3>
-          <p>Asesor&iacute;a estrat&eacute;gica para la toma de decisiones informadas en el mercado inmobiliario.</p>
+          <p>Asesor&iacute;a estrat&eacute;gica para la toma de decisiones informadas basadas en datos de mercado.</p>
         </div>
         <div class="pillar reveal">
           <div class="pillar-icon">
@@ -1160,7 +1058,7 @@
             <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
           </div>
           <h3>Marketing Global</h3>
-          <p>Estrategias de imagen, posicionamiento y comunicaci&oacute;n para proyectos inmobiliarios.</p>
+          <p>Estrategias de imagen, posicionamiento y comunicaci&oacute;n para marcas y empresas.</p>
         </div>
       </div>
 
@@ -1170,12 +1068,12 @@
           <div class="research-col">
             <h4>Estudios Cualitativos</h4>
             <ul>
-              <li>Reclutamiento</li>
-              <li>C&aacute;maras Gesell</li>
-              <li>Incentivos</li>
+              <li>Servicios de Reclutamiento (todos los niveles)</li>
+              <li>Renta de C&aacute;maras Gesell</li>
+              <li>Manejo de incentivos</li>
               <li>Moderaci&oacute;n y an&aacute;lisis</li>
-              <li>Entrevistas a profundidad</li>
-              <li>Mystery Shoppers</li>
+              <li>Realizaci&oacute;n de entrevistas a profundidad</li>
+              <li>Servicios de Mystery Shoppers</li>
             </ul>
           </div>
           <div class="research-col">
@@ -1191,6 +1089,53 @@
     </div>
   </section>
 
+
+  <!-- ========== CLIENTS ========== -->
+  <section class="clients" id="clients">
+    <div class="container">
+      <div class="clients-header reveal">
+        <p class="section-label">Confianza</p>
+        <h2 class="section-title">Algunos de nuestros clientes</h2>
+      </div>
+      <div class="clients-grid reveal">
+        <div class="client-tag">SEDENA</div>
+        <div class="client-tag">Consorcio ARA</div>
+        <div class="client-tag">Commosa</div>
+        <div class="client-tag">Nestl&eacute;</div>
+        <div class="client-tag">Areya</div>
+        <div class="client-tag">Daltile</div>
+        <div class="client-tag">Transpais</div>
+        <div class="client-tag">Grupo Senda</div>
+        <div class="client-tag">Termogas</div>
+        <div class="client-tag">Landus</div>
+        <div class="client-tag">Ruba</div>
+        <div class="client-tag">Desarrollos Delta</div>
+        <div class="client-tag">Nissan</div>
+        <div class="client-tag">Dimex Capital</div>
+        <div class="client-tag">Marfil</div>
+        <div class="client-tag">Casas GEO</div>
+        <div class="client-tag">Alora</div>
+        <div class="client-tag">Grupo Salinas</div>
+        <div class="client-tag">PEMEX</div>
+        <div class="client-tag">Javer</div>
+        <div class="client-tag">Condocasa</div>
+        <div class="client-tag">Proeza</div>
+        <div class="client-tag">Gob. de Nuevo Le&oacute;n</div>
+        <div class="client-tag">GP Vivienda</div>
+        <div class="client-tag">URBIS Internacional</div>
+        <div class="client-tag">Afirme</div>
+        <div class="client-tag">Walmart</div>
+        <div class="client-tag">S-Mart</div>
+        <div class="client-tag">Grupo Financiero BASE</div>
+        <div class="client-tag">Ternium</div>
+        <div class="client-tag">Christus Muguerza</div>
+        <div class="client-tag">Rollins</div>
+        <div class="client-tag">Closer</div>
+        <div class="client-tag">Heineken</div>
+        <div class="client-tag">SB Soluci&oacute;n Bienes</div>
+      </div>
+    </div>
+  </section>
 
   <!-- ========== CONTACT ========== -->
   <section class="contact" id="contact">
