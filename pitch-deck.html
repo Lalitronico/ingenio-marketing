@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920">
+<title>Ingenio Marketing — Portafolio de Servicios</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=block" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#0F1A2E;--navy-mid:#1B2A4A;--navy-light:#243358;
+  --orange:#E8862F;--coral:#E8586D;
+  --cyan:#00A8E8;
+  --cream:#FAF8F5;--cream-dark:#F0EDE8;
+  --white:#FFFFFF;
+  --gray-400:#8A8478;--gray-600:#5A5650;
+  --font-d:'Plus Jakarta Sans',sans-serif;
+  --font-b:'Outfit',sans-serif;
+  --W:1920px;--H:1080px;
+  /* Typography scale */
+  --fs-kpi:120px;--fs-h1:56px;--fs-h2:40px;
+  --fs-sub:24px;--fs-body:20px;--fs-label:16px;
+  /* Grid */
+  --pad:64px;
+}
+html{font-size:16px}
+body{font-family:var(--font-b);background:#D5D0CA;-webkit-font-smoothing:antialiased}
+.deck{display:flex;flex-direction:column;align-items:center;gap:20px;padding:20px 0}
+.S{width:var(--W);height:var(--H);overflow:hidden;position:relative;flex-shrink:0;box-shadow:0 12px 60px rgba(0,0,0,.18)}
+@page{size:1920px 1080px;margin:0}
+@media print{body{background:#fff;margin:0;padding:0}.deck{gap:0;padding:0}.S{box-shadow:none;page-break-after:always;break-after:page;transform:none!important;margin-bottom:0!important}}
+
+/* Gradient helpers */
+.grad-coral{background:linear-gradient(135deg,var(--coral),var(--orange))}
+.grad-cyan{background:linear-gradient(135deg,var(--cyan),#0077B6)}
+.grad-navy{background:linear-gradient(160deg,var(--navy) 0%,var(--navy-mid) 100%)}
+.grad-text{background:linear-gradient(135deg,var(--coral),var(--orange));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+/* ═══════════════════════════════════════════
+   S01 — PORTADA (HERO)
+   ═══════════════════════════════════════════ */
+#s1{background:var(--navy);display:flex;align-items:center}
+#s1::before{
+  content:'';position:absolute;
+  right:-180px;top:-180px;
+  width:900px;height:900px;
+  border-radius:50%;
+  background:linear-gradient(135deg,rgba(232,134,47,.12),rgba(232,88,109,.08));
+}
+#s1::after{
+  content:'';position:absolute;
+  left:-100px;bottom:-200px;
+  width:600px;height:600px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(0,168,232,.1) 0%,transparent 70%);
+}
+.s1-wrap{position:relative;z-index:2;display:flex;align-items:center;width:100%;height:100%;padding:0 var(--pad)}
+.s1-left{flex:1}
+.s1-logo{display:flex;align-items:center;gap:16px;margin-bottom:48px}
+.s1-logo svg{height:56px;width:auto}
+.s1-logo-text{font-family:var(--font-d);font-size:var(--fs-label);font-weight:700;color:rgba(255,255,255,.5);letter-spacing:3px;text-transform:uppercase}
+.s1-title{font-family:var(--font-d);font-size:60px;font-weight:800;color:var(--white);line-height:1.05;letter-spacing:-2px;margin-bottom:16px}
+.s1-title em{font-style:normal;background:linear-gradient(135deg,var(--coral),var(--orange));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.s1-tagline{font-family:var(--font-d);font-size:var(--fs-sub);font-weight:500;color:var(--cyan);letter-spacing:4px;text-transform:uppercase;margin-bottom:40px}
+.s1-bullets{list-style:none;display:flex;flex-direction:column;gap:16px}
+.s1-bullets li{font-family:var(--font-b);font-size:var(--fs-body);color:rgba(255,255,255,.6);line-height:1.5;padding-left:24px;position:relative}
+.s1-bullets li::before{content:'';position:absolute;left:0;top:10px;width:8px;height:8px;border-radius:50%;background:var(--orange)}
+/* Right side: decorative circles */
+.s1-right{flex:0 0 480px;display:flex;align-items:center;justify-content:center;position:relative;height:100%}
+.s1-circle{position:absolute;border-radius:50%;border-style:solid}
+.s1-c1{width:360px;height:360px;border-width:3px;border-color:rgba(232,134,47,.2);top:140px;right:0}
+.s1-c2{width:260px;height:260px;border-width:2.5px;border-color:rgba(232,88,109,.18);top:320px;right:120px}
+.s1-c3{width:420px;height:420px;border-width:3.5px;border-color:rgba(0,168,232,.15);top:260px;right:-80px}
+.s1-dot1{position:absolute;width:14px;height:14px;border-radius:50%;background:var(--orange);opacity:.35;top:200px;right:160px}
+.s1-dot2{position:absolute;width:9px;height:9px;border-radius:50%;background:var(--coral);opacity:.3;top:380px;right:300px}
+.s1-bar{position:absolute;bottom:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--orange),var(--coral),var(--cyan));z-index:3}
+
+/* ═══════════════════════════════════════════
+   S02 — PROPUESTA DE VALOR (HERO)
+   Split 60/40
+   ═══════════════════════════════════════════ */
+#s2{background:var(--cream);display:flex}
+.s2-left{flex:1;padding:var(--pad);display:flex;flex-direction:column;justify-content:center}
+.s2-num{font-family:var(--font-d);font-size:var(--fs-kpi);font-weight:800;line-height:.85;letter-spacing:-5px;margin-bottom:24px}
+.s2-title{font-family:var(--font-d);font-size:44px;font-weight:800;color:var(--navy);line-height:1.1;letter-spacing:-1.5px;margin-bottom:24px}
+.s2-bullets{list-style:none;display:flex;flex-direction:column;gap:14px}
+.s2-bullets li{font-size:var(--fs-body);color:var(--gray-600);line-height:1.5;padding-left:24px;position:relative}
+.s2-bullets li::before{content:'';position:absolute;left:0;top:10px;width:8px;height:8px;border-radius:50%;background:var(--coral)}
+.s2-right{flex:0 0 40%;background:linear-gradient(160deg,var(--coral),var(--orange));display:flex;flex-direction:column;justify-content:center;padding:var(--pad);position:relative;overflow:hidden}
+.s2-right::before{content:'';position:absolute;top:-60px;right:-60px;width:300px;height:300px;border-radius:50%;background:rgba(255,255,255,.08)}
+.s2-right::after{content:'';position:absolute;bottom:-40px;left:-40px;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,.05)}
+.s2-right h3{font-family:var(--font-d);font-size:var(--fs-sub);font-weight:800;color:var(--white);margin-bottom:32px;line-height:1.2;position:relative;z-index:1}
+.s2-pills{display:flex;flex-direction:column;gap:16px;position:relative;z-index:1}
+.s2-pill{display:flex;align-items:center;gap:16px;font-family:var(--font-d);font-size:18px;font-weight:600;color:var(--white);background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:20px 24px;backdrop-filter:blur(4px)}
+.s2-pill-icon{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px}
+.s2-kpi{position:relative;z-index:1;margin-top:auto;padding-top:24px;border-top:1px solid rgba(255,255,255,.15)}
+.s2-kpi-num{font-family:var(--font-d);font-size:48px;font-weight:800;color:var(--white);letter-spacing:-2px;line-height:1}
+.s2-kpi-text{font-size:18px;color:rgba(255,255,255,.7);margin-top:4px}
+
+/* ═══════════════════════════════════════════
+   S03 — QUIENES SOMOS (CONTENT)
+   50/50 grid, no accent bar
+   ═══════════════════════════════════════════ */
+#s3{background:var(--white);display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:var(--pad);align-items:center}
+.s3-label{font-family:var(--font-d);font-size:var(--fs-label);font-weight:700;color:var(--coral);letter-spacing:3px;text-transform:uppercase;margin-bottom:16px}
+.s3-title{font-family:var(--font-d);font-size:var(--fs-h1);font-weight:800;color:var(--navy);line-height:1.08;letter-spacing:-1.5px;margin-bottom:24px}
+.s3-text{font-size:var(--fs-body);color:var(--gray-600);line-height:1.7;margin-bottom:20px}
+.s3-text strong{color:var(--navy)}
+.s3-sectors{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px}
+.s3-sector-tag{font-family:var(--font-d);font-size:var(--fs-label);font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:12px 20px;border-radius:8px;background:var(--cream);border:1px solid var(--cream-dark);color:var(--gray-600)}
+.s3-location{display:flex;align-items:center;gap:10px;font-family:var(--font-d);font-size:var(--fs-label);font-weight:600;color:var(--cyan)}
+.s3-location svg{width:20px;height:20px}
+.s3-right{display:flex;flex-direction:column;gap:16px}
+.s3-stat{background:var(--cream);border-radius:16px;padding:28px 32px;display:flex;align-items:center;gap:24px}
+.s3-stat-num{font-family:var(--font-d);font-size:48px;font-weight:800;letter-spacing:-2px;flex-shrink:0;min-width:100px}
+.s3-stat-label{font-family:var(--font-d);font-size:18px;font-weight:600;color:var(--navy);line-height:1.4}
+
+/* ═══════════════════════════════════════════
+   S04 — CIFRAS (PROOF)
+   Dark navy with huge gradient numbers
+   ═══════════════════════════════════════════ */
+#s4{background:var(--navy);display:flex;flex-direction:column;position:relative;overflow:hidden}
+#s4::before{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(232,134,47,.08) 0%,transparent 70%)}
+.s4-wrap{position:relative;z-index:1;padding:var(--pad);flex:1;display:flex;flex-direction:column}
+.s4-label{font-family:var(--font-d);font-size:var(--fs-label);font-weight:700;color:var(--cyan);letter-spacing:3px;text-transform:uppercase;margin-bottom:8px}
+.s4-subtitle{font-family:var(--font-d);font-size:22px;font-weight:500;color:rgba(255,255,255,.6);margin-bottom:48px}
+.s4-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;flex:1;align-items:stretch}
+.s4-item{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:32px;position:relative}
+.s4-item+.s4-item::before{content:'';position:absolute;left:0;top:15%;bottom:15%;width:1px;background:rgba(255,255,255,.08)}
+.s4-big{font-family:var(--font-d);font-size:var(--fs-kpi);font-weight:800;line-height:.9;letter-spacing:-5px;margin-bottom:8px}
+.s4-unit{font-family:var(--font-d);font-size:28px;font-weight:700;margin-bottom:12px}
+.s4-desc{font-size:var(--fs-body);color:rgba(255,255,255,.7);line-height:1.5;max-width:260px;margin-bottom:12px}
+.s4-impact{font-size:18px;color:var(--cyan);font-family:var(--font-d);font-weight:500;line-height:1.4;max-width:260px}
+.s4-bar{position:absolute;bottom:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--orange),var(--coral),var(--cyan));z-index:2}
+
+/* ═══════════════════════════════════════════
+   S05 — SERVICIOS (CONTENT)
+   Magazine grid 3x2
+   ═══════════════════════════════════════════ */
+#s5{background:var(--cream);display:flex;flex-direction:column;padding:var(--pad)}
+.s5-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:32px}
+.s5-title{font-family:var(--font-d);font-size:var(--fs-h2);font-weight:800;color:var(--navy);letter-spacing:-1.5px;line-height:1.05}
+.s5-title span{display:block;font-size:var(--fs-label);font-weight:700;color:var(--coral);letter-spacing:3px;text-transform:uppercase;margin-bottom:10px;line-height:1}
+.s5-subtitle{font-size:var(--fs-body);color:var(--gray-400);max-width:380px;text-align:right;line-height:1.6}
+.s5-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:1fr 1fr;gap:18px;flex:1}
+.svc{border-radius:16px;padding:28px 28px 24px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.svc--filled{color:var(--white)}
+.svc--outlined{background:var(--white);border:1px solid var(--cream-dark);color:var(--navy)}
+.svc-num{font-family:var(--font-d);font-size:var(--fs-label);font-weight:700;letter-spacing:2px;margin-bottom:12px;opacity:.7}
+.svc-name{font-family:var(--font-d);font-size:26px;font-weight:700;line-height:1.2;margin-bottom:12px}
+.svc-items{font-size:18px;line-height:1.7;opacity:.8}
+.svc-tag{display:inline-block;font-family:var(--font-d);font-size:var(--fs-label);font-weight:600;padding:8px 16px;border-radius:6px;margin-top:auto;letter-spacing:.3px}
+.svc--filled .svc-tag{background:rgba(255,255,255,.15);color:var(--white)}
+.svc--outlined .svc-tag{background:var(--cream);color:var(--gray-600)}
+/* Color variants */
+.svc--orange{background:linear-gradient(150deg,var(--orange),#D47520)}
+.svc--coral{background:linear-gradient(150deg,var(--coral),#C94A5C)}
+.svc--cyan{background:linear-gradient(150deg,var(--cyan),#0077B6)}
+.svc--navy{background:linear-gradient(150deg,var(--navy-mid),var(--navy))}
+.svc--filled::before{content:'';position:absolute;top:-30px;right:-30px;width:140px;height:140px;border-radius:50%;background:rgba(255,255,255,.06)}
+
+/* ═══════════════════════════════════════════
+   S06 — METODOLOGIA (CONTENT) — Timeline rework
+   5 cajas grandes con deliverables
+   ═══════════════════════════════════════════ */
+#s6{background:var(--white);display:flex;flex-direction:column;padding:var(--pad)}
+.s6-top{margin-bottom:32px}
+.s6-label{font-family:var(--font-d);font-size:var(--fs-label);font-weight:700;color:var(--cyan);letter-spacing:3px;text-transform:uppercase;margin-bottom:8px}
+.s6-title{font-family:var(--font-d);font-size:var(--fs-h1);font-weight:800;color:var(--navy);letter-spacing:-1.5px}
+/* Timeline connector */
+.s6-timeline{position:relative;display:flex;gap:18px;flex:1}
+.s6-timeline::before{content:'';position:absolute;top:36px;left:24px;right:24px;height:3px;background:linear-gradient(90deg,var(--orange),var(--coral),var(--cyan));border-radius:2px;z-index:0}
+.s6-box{flex:1;background:var(--cream);border-radius:16px;padding:28px 24px;display:flex;flex-direction:column;position:relative;z-index:1;border-top:4px solid transparent}
+.s6-box:nth-child(1){border-color:var(--orange)}
+.s6-box:nth-child(2){border-color:var(--coral)}
+.s6-box:nth-child(3){border-color:var(--cyan)}
+.s6-box:nth-child(4){border-color:var(--orange)}
+.s6-box:nth-child(5){border-color:var(--coral)}
+.s6-box-num{font-family:var(--font-d);font-size:48px;font-weight:800;line-height:1;letter-spacing:-2px;margin-bottom:12px}
+.s6-box-name{font-family:var(--font-d);font-size:var(--fs-sub);font-weight:700;color:var(--navy);margin-bottom:14px}
+.s6-box-bullets{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:auto}
+.s6-box-bullets li{font-size:18px;color:var(--gray-600);line-height:1.4;padding-left:16px;position:relative}
+.s6-box-bullets li::before{content:'';position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:var(--gray-400)}
+.s6-box-tag{display:inline-block;font-family:var(--font-d);font-size:var(--fs-label);font-weight:600;padding:8px 14px;border-radius:6px;margin-top:16px;align-self:flex-start}
+.s6-box:nth-child(1) .s6-box-tag{background:rgba(232,134,47,.1);color:var(--orange)}
+.s6-box:nth-child(2) .s6-box-tag{background:rgba(232,88,109,.1);color:var(--coral)}
+.s6-box:nth-child(3) .s6-box-tag{background:rgba(0,168,232,.1);color:var(--cyan)}
+.s6-box:nth-child(4) .s6-box-tag{background:rgba(232,134,47,.1);color:var(--orange)}
+.s6-box:nth-child(5) .s6-box-tag{background:rgba(232,88,109,.1);color:var(--coral)}
+
+/* ═══════════════════════════════════════════
+   S07-S09 — CASES (PROOF)
+   Split 60/40 with real info in panels
+   ═══════════════════════════════════════════ */
+.case-left{flex:1;padding:var(--pad);display:flex;flex-direction:column;justify-content:center}
+.case-label{font-family:var(--font-d);font-size:var(--fs-label);font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:20px}
+.case-title{font-family:var(--font-d);font-size:44px;font-weight:800;color:var(--navy);line-height:1.1;letter-spacing:-1.5px;margin-bottom:20px}
+.case-body{font-size:var(--fs-body);color:var(--gray-600);line-height:1.7;margin-bottom:24px;max-width:600px}
+.case-tags{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:32px}
+.case-tag{font-family:var(--font-d);font-size:var(--fs-label);font-weight:600;padding:12px 20px;border-radius:8px;letter-spacing:.3px}
+.case-metric{display:flex;align-items:baseline;gap:16px}
+.case-metric-num{font-family:var(--font-d);font-size:80px;font-weight:800;letter-spacing:-4px;line-height:1}
+.case-metric-text{font-size:var(--fs-body);color:var(--gray-400);line-height:1.4;max-width:240px}
+
+/* Case right panels — 40% with real content */
+.case-right{flex:0 0 40%;display:flex;flex-direction:column;justify-content:center;padding:var(--pad);position:relative;overflow:hidden}
+.case-right::before{content:'';position:absolute;top:-80px;right:-80px;width:300px;height:300px;border-radius:50%;background:rgba(255,255,255,.08)}
+.case-right-content{position:relative;z-index:1}
+.case-right-kpi{font-family:var(--font-d);font-size:80px;font-weight:800;color:var(--white);line-height:1;letter-spacing:-3px;margin-bottom:8px}
+.case-right-kpi-text{font-size:var(--fs-body);color:rgba(255,255,255,.7);font-family:var(--font-d);font-weight:500;margin-bottom:32px}
+.case-right-divider{height:1px;background:rgba(255,255,255,.15);margin-bottom:28px}
+.case-right-bullets{list-style:none;display:flex;flex-direction:column;gap:14px}
+.case-right-bullets li{font-size:18px;color:rgba(255,255,255,.8);font-family:var(--font-d);font-weight:500;padding-left:20px;position:relative;line-height:1.4}
+.case-right-bullets li::before{content:'';position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.4)}
+
+/* S07 — Consumo */
+#s7{background:var(--white);display:flex}
+.case-right--orange{background:linear-gradient(160deg,var(--orange),#D47520)}
+.case--orange .case-label{color:var(--orange)}
+.case--orange .case-tag{color:var(--orange);background:rgba(232,134,47,.08);border:1px solid rgba(232,134,47,.15)}
+.case--orange .case-metric-num{background:linear-gradient(135deg,var(--coral),var(--orange));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+/* S08 — Estrategia (reversed) */
+#s8{background:var(--cream);display:flex;flex-direction:row-reverse}
+.case-right--cyan{background:linear-gradient(160deg,var(--cyan),#0077B6)}
+.case--cyan .case-label{color:var(--cyan)}
+.case--cyan .case-tag{color:var(--cyan);background:rgba(0,168,232,.06);border:1px solid rgba(0,168,232,.12)}
+.case--cyan .case-metric-num{background:linear-gradient(135deg,var(--cyan),#0077B6);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+/* S09 — Inmobiliario (navy bg) */
+#s9{background:var(--navy);display:flex}
+.case-right--coral{background:linear-gradient(160deg,var(--coral),#C94A5C)}
+.case--coral .case-label{color:var(--coral)}
+.case--coral .case-tag{color:rgba(255,255,255,.8);background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12)}
+.case--coral .case-title{color:var(--white)}
+.case--coral .case-body{color:rgba(255,255,255,.6)}
+.case--coral .case-metric-num{background:linear-gradient(135deg,var(--coral),var(--orange));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.case--coral .case-metric-text{color:rgba(255,255,255,.6)}
+
+/* ═══════════════════════════════════════════
+   S10 — CLIENTES (PROOF)
+   Clean grid with proper typography
+   ═══════════════════════════════════════════ */
+#s10{background:var(--cream);display:flex;flex-direction:column;padding:var(--pad)}
+.s10-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:28px}
+.s10-title{font-family:var(--font-d);font-size:var(--fs-h2);font-weight:800;color:var(--navy);letter-spacing:-1.5px;line-height:1.05}
+.s10-title span{display:block;font-size:var(--fs-label);font-weight:700;color:var(--orange);letter-spacing:3px;text-transform:uppercase;margin-bottom:10px;line-height:1}
+.s10-stats{display:flex;gap:40px;align-items:flex-end}
+.s10-stat-block{text-align:center}
+.s10-stat-num{font-family:var(--font-d);font-size:64px;font-weight:800;letter-spacing:-2px;line-height:1}
+.s10-stat-text{font-size:18px;color:var(--gray-400);font-family:var(--font-d);font-weight:500;margin-top:4px}
+/* Top tier clients */
+.s10-top{display:flex;gap:16px;margin-bottom:20px}
+.s10-top-chip{flex:1;background:var(--navy);color:var(--white);font-family:var(--font-d);font-size:20px;font-weight:700;padding:28px 16px;border-radius:12px;text-align:center;letter-spacing:.3px}
+/* Rest of clients grid */
+.s10-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:14px;flex:1;align-content:space-evenly}
+.s10-chip{background:var(--white);border:1px solid var(--cream-dark);border-radius:10px;padding:22px 14px;text-align:center;font-family:var(--font-d);font-size:18px;font-weight:600;color:var(--navy);letter-spacing:.2px;display:flex;align-items:center;justify-content:center}
+
+/* ═══════════════════════════════════════════
+   S11 — CONTACTO / CTA (HERO)
+   ═══════════════════════════════════════════ */
+#s11{background:var(--navy);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+#s11::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:800px;height:800px;border-radius:50%;background:radial-gradient(circle,rgba(232,88,109,.06) 0%,transparent 70%)}
+.s11-wrap{position:relative;z-index:1;text-align:center;max-width:960px;padding:var(--pad)}
+.s11-logo{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:40px}
+.s11-logo svg{height:52px;width:auto}
+.s11-logo-text{font-family:var(--font-d);font-weight:800;font-size:20px;color:var(--white);letter-spacing:2px}
+.s11-logo-text span{display:block;color:var(--coral);font-weight:600;font-size:var(--fs-label);letter-spacing:1px;margin-top:2px}
+.s11-title{font-family:var(--font-d);font-size:60px;font-weight:800;color:var(--white);letter-spacing:-2px;line-height:1;margin-bottom:24px}
+.s11-quote{font-family:var(--font-d);font-size:22px;font-weight:500;font-style:italic;color:rgba(255,255,255,.5);line-height:1.6;margin-bottom:56px}
+.s11-contacts{display:flex;justify-content:center;gap:80px}
+.s11-contact{text-align:center}
+.s11-contact-label{font-family:var(--font-d);font-size:var(--fs-label);font-weight:700;color:var(--cyan);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
+.s11-contact-value{font-family:var(--font-b);font-size:var(--fs-body);color:rgba(255,255,255,.7)}
+.s11-footer{position:absolute;bottom:32px;left:0;right:0;text-align:center;font-size:var(--fs-label);color:rgba(255,255,255,.2);letter-spacing:1px}
+.s11-bar{position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--orange),var(--coral),var(--cyan));z-index:2}
+
+/* Nav hint */
+.nav-hint{position:fixed;bottom:12px;left:50%;transform:translateX(-50%);font-family:var(--font-d);font-size:var(--fs-label);font-weight:600;color:rgba(0,0,0,.3);letter-spacing:1px;z-index:100;background:rgba(255,255,255,.85);padding:5px 14px;border-radius:20px;backdrop-filter:blur(8px)}
+@media print{.nav-hint{display:none}}
+</style>
+</head>
+<body>
+<div class="deck">
+
+<!-- ═══ S01 — PORTADA (HERO) ═══ -->
+<section class="S" id="s1">
+  <div class="s1-wrap">
+    <div class="s1-left">
+      <div class="s1-logo">
+        <svg viewBox="0 0 48 56" fill="none" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="18" cy="15" r="10.5" stroke="#E8862F" stroke-width="5" stroke-dasharray="57 9" stroke-dashoffset="-12"/>
+          <circle cx="26" cy="9" r="1.8" fill="#E8586D"/>
+          <circle cx="30" cy="28" r="8.5" stroke="#E8586D" stroke-width="4" stroke-dasharray="46 7.4" stroke-dashoffset="14"/>
+          <circle cx="16" cy="41" r="11.5" stroke="#00A8E8" stroke-width="5.5" stroke-dasharray="63 9.3" stroke-dashoffset="-18"/>
+        </svg>
+        <span class="s1-logo-text">Ingenio Marketing</span>
+      </div>
+      <h1 class="s1-title">Datos que<br>impulsan <em>decisiones.</em></h1>
+      <p class="s1-tagline">Marketing a su alcance</p>
+      <ul class="s1-bullets">
+        <li>+35 a&ntilde;os de experiencia en investigaci&oacute;n de mercados</li>
+        <li>+100 clientes corporativos en toda la Rep&uacute;blica</li>
+        <li>8 sectores de la econom&iacute;a mexicana</li>
+      </ul>
+    </div>
+    <div class="s1-right">
+      <div class="s1-circle s1-c1"></div>
+      <div class="s1-circle s1-c2"></div>
+      <div class="s1-circle s1-c3"></div>
+      <div class="s1-dot1"></div>
+      <div class="s1-dot2"></div>
+    </div>
+  </div>
+  <div class="s1-bar"></div>
+</section>
+
+<!-- ═══ S02 — PROPUESTA DE VALOR (HERO) ═══ -->
+<section class="S" id="s2">
+  <div class="s2-left">
+    <div class="s2-num grad-text">35+</div>
+    <h2 class="s2-title">A&ntilde;os convirtiendo datos en ventaja competitiva</h2>
+    <ul class="s2-bullets">
+      <li>Rigor metodol&oacute;gico con experiencia multisectorial</li>
+      <li>Resultados medibles que transforman negocios</li>
+      <li>Cobertura nacional: de Monterrey a Ciudad de M&eacute;xico</li>
+    </ul>
+  </div>
+  <div class="s2-right">
+    <h3>Lo que hacemos por nuestros clientes</h3>
+    <div class="s2-pills">
+      <div class="s2-pill"><span class="s2-pill-icon">&#x1F50D;</span> Investigaci&oacute;n de Mercado</div>
+      <div class="s2-pill"><span class="s2-pill-icon">&#x1F4CA;</span> Inteligencia de Mercados</div>
+      <div class="s2-pill"><span class="s2-pill-icon">&#x1F3AF;</span> Consultor&iacute;a Estrat&eacute;gica</div>
+      <div class="s2-pill"><span class="s2-pill-icon">&#x1F4C8;</span> Estudios de Factibilidad</div>
+    </div>
+    <div class="s2-kpi">
+      <div class="s2-kpi-num">+500</div>
+      <div class="s2-kpi-text">proyectos entregados exitosamente</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ S03 — QUIENES SOMOS (CONTENT) ═══ -->
+<section class="S" id="s3">
+  <div>
+    <div class="s3-label">Qui&eacute;nes Somos</div>
+    <h2 class="s3-title">Informaci&oacute;n confiable para decisiones inteligentes</h2>
+    <p class="s3-text">M&aacute;s de 35 a&ntilde;os guiando a <strong>empresas l&iacute;deres de M&eacute;xico</strong> con investigaci&oacute;n de mercados e inteligencia estrat&eacute;gica.</p>
+    <div class="s3-sectors">
+      <span class="s3-sector-tag">Inmobiliario</span>
+      <span class="s3-sector-tag">Consumo</span>
+      <span class="s3-sector-tag">Retail</span>
+      <span class="s3-sector-tag">Industria</span>
+      <span class="s3-sector-tag">Gobierno</span>
+      <span class="s3-sector-tag">Financiero</span>
+      <span class="s3-sector-tag">Energ&iacute;a</span>
+      <span class="s3-sector-tag">Salud</span>
+    </div>
+    <div class="s3-location">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      San Nicol&aacute;s de los Garza, Nuevo Le&oacute;n, M&eacute;xico
+    </div>
+  </div>
+  <div class="s3-right">
+    <div class="s3-stat">
+      <div class="s3-stat-num grad-text">+35</div>
+      <div class="s3-stat-label">A&ntilde;os en investigaci&oacute;n y consultor&iacute;a</div>
+    </div>
+    <div class="s3-stat">
+      <div class="s3-stat-num grad-text">+100</div>
+      <div class="s3-stat-label">Clientes corporativos de Nestl&eacute; a PEMEX</div>
+    </div>
+    <div class="s3-stat">
+      <div class="s3-stat-num grad-text">+500</div>
+      <div class="s3-stat-label">Proyectos de investigaci&oacute;n entregados</div>
+    </div>
+    <div class="s3-stat">
+      <div class="s3-stat-num grad-text">8</div>
+      <div class="s3-stat-label">Sectores de industria con cobertura nacional</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ S04 — CIFRAS (PROOF) ═══ -->
+<section class="S" id="s4">
+  <div class="s4-wrap">
+    <div class="s4-label">Nuestro impacto</div>
+    <div class="s4-subtitle">N&uacute;meros que hablan por s&iacute; solos.</div>
+    <div class="s4-grid">
+      <div class="s4-item">
+        <div class="s4-big grad-text">+35</div>
+        <div class="s4-unit grad-text">a&ntilde;os</div>
+        <div class="s4-desc">de experiencia en investigaci&oacute;n y consultor&iacute;a de mercados</div>
+        <div class="s4-impact">Pioneros en investigaci&oacute;n de mercados en Nuevo Le&oacute;n</div>
+      </div>
+      <div class="s4-item">
+        <div class="s4-big grad-text">+100</div>
+        <div class="s4-desc">clientes corporativos atendidos en toda la Rep&uacute;blica Mexicana</div>
+        <div class="s4-impact">De Nestl&eacute; a SEDENA en m&uacute;ltiples sectores</div>
+      </div>
+      <div class="s4-item">
+        <div class="s4-big grad-text">+500</div>
+        <div class="s4-desc">proyectos de investigaci&oacute;n entregados exitosamente</div>
+        <div class="s4-impact">Investigaci&oacute;n, consultor&iacute;a y factibilidad</div>
+      </div>
+      <div class="s4-item">
+        <div class="s4-big grad-text">8</div>
+        <div class="s4-desc">sectores de industria con cobertura especializada</div>
+        <div class="s4-impact">Cobertura multisectorial a nivel nacional</div>
+      </div>
+    </div>
+  </div>
+  <div class="s4-bar"></div>
+</section>
+
+<!-- ═══ S05 — SERVICIOS (CONTENT) ═══ -->
+<section class="S" id="s5">
+  <div class="s5-header">
+    <h2 class="s5-title"><span>Servicios</span>Soluciones integrales<br>para tu mercado</h2>
+    <p class="s5-subtitle">Combinamos rigor metodol&oacute;gico y experiencia multisectorial.</p>
+  </div>
+  <div class="s5-grid">
+    <div class="svc svc--orange svc--filled">
+      <span class="svc-num">01</span>
+      <h3 class="svc-name">Investigaci&oacute;n de Mercado</h3>
+      <p class="svc-items">C&aacute;maras Gesell &middot; Entrevistas a profundidad &middot; Mystery shoppers</p>
+      <span class="svc-tag">Reporte ejecutivo</span>
+    </div>
+    <div class="svc svc--outlined">
+      <span class="svc-num">02</span>
+      <h3 class="svc-name">Inteligencia de Mercados</h3>
+      <p class="svc-items">Benchmarking sectorial &middot; Monitoreo de competencia &middot; Atractividad</p>
+      <span class="svc-tag">Dashboard competitivo</span>
+    </div>
+    <div class="svc svc--cyan svc--filled">
+      <span class="svc-num">03</span>
+      <h3 class="svc-name">Consultor&iacute;a Estrat&eacute;gica</h3>
+      <p class="svc-items">Modelos de negocio &middot; Plan de mercadotecnia &middot; Entendimiento del mercado</p>
+      <span class="svc-tag">Plan estrat&eacute;gico</span>
+    </div>
+    <div class="svc svc--outlined">
+      <span class="svc-num">04</span>
+      <h3 class="svc-name">Estudios de Factibilidad</h3>
+      <p class="svc-items">Oferta y demanda &middot; Absorci&oacute;n hist&oacute;rica &middot; Mayor y mejor uso</p>
+      <span class="svc-tag">Estudio de viabilidad</span>
+    </div>
+    <div class="svc svc--coral svc--filled">
+      <span class="svc-num">05</span>
+      <h3 class="svc-name">Imagen y Marketing Global</h3>
+      <p class="svc-items">Pruebas de concepto &middot; Estrategia de comunicaci&oacute;n &middot; Posicionamiento</p>
+      <span class="svc-tag">Estrategia de marca</span>
+    </div>
+    <div class="svc svc--navy svc--filled">
+      <span class="svc-num">06</span>
+      <h3 class="svc-name">Estudios Especializados</h3>
+      <p class="svc-items">Investigaci&oacute;n financiera &middot; Mezclas de vivienda &middot; Est&aacute;ndares de servicio</p>
+      <span class="svc-tag">An&aacute;lisis sectorial</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ S06 — METODOLOGIA (CONTENT) — Timeline ═══ -->
+<section class="S" id="s6">
+  <div class="s6-top">
+    <div class="s6-label">Metodolog&iacute;a</div>
+    <h2 class="s6-title">C&oacute;mo trabajamos</h2>
+  </div>
+  <div class="s6-timeline">
+    <div class="s6-box">
+      <div class="s6-box-num grad-text">01</div>
+      <h3 class="s6-box-name">Factibilidad</h3>
+      <ul class="s6-box-bullets">
+        <li>An&aacute;lisis de viabilidad del proyecto</li>
+        <li>Evaluaci&oacute;n de oferta y demanda</li>
+      </ul>
+      <span class="s6-box-tag">Estudio de factibilidad</span>
+    </div>
+    <div class="s6-box">
+      <div class="s6-box-num grad-text">02</div>
+      <h3 class="s6-box-name">Benchmarking</h3>
+      <ul class="s6-box-bullets">
+        <li>Comparativa competitiva</li>
+        <li>Mapeo del entorno sectorial</li>
+      </ul>
+      <span class="s6-box-tag">Reporte comparativo</span>
+    </div>
+    <div class="s6-box">
+      <div class="s6-box-num grad-text">03</div>
+      <h3 class="s6-box-name">Investigaci&oacute;n</h3>
+      <ul class="s6-box-bullets">
+        <li>Medici&oacute;n de atractividad de mercado</li>
+        <li>Monitoreo de competencia</li>
+      </ul>
+      <span class="s6-box-tag">Insights de mercado</span>
+    </div>
+    <div class="s6-box">
+      <div class="s6-box-num grad-text">04</div>
+      <h3 class="s6-box-name">An&aacute;lisis</h3>
+      <ul class="s6-box-bullets">
+        <li>Identificaci&oacute;n de oportunidades</li>
+        <li>Determinaci&oacute;n de mayor y mejor uso</li>
+      </ul>
+      <span class="s6-box-tag">Diagn&oacute;stico estrat&eacute;gico</span>
+    </div>
+    <div class="s6-box">
+      <div class="s6-box-num grad-text">05</div>
+      <h3 class="s6-box-name">Estrategia</h3>
+      <ul class="s6-box-bullets">
+        <li>Recomendaciones accionables</li>
+        <li>Acompa&ntilde;amiento en implementaci&oacute;n</li>
+      </ul>
+      <span class="s6-box-tag">Plan de acci&oacute;n</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ S07 — CASO CONSUMO (PROOF) ═══ -->
+<section class="S" id="s7">
+  <div class="case-left case--orange">
+    <div class="case-label">Consumo y Servicios</div>
+    <h2 class="case-title">Investigaci&oacute;n cualitativa y cuantitativa para marcas l&iacute;deres</h2>
+    <p class="case-body">Focus groups en c&aacute;maras Gesell, entrevistas a profundidad y mystery shoppers para entender al consumidor.</p>
+    <div class="case-tags">
+      <span class="case-tag">Focus Groups</span>
+      <span class="case-tag">Entrevistas</span>
+      <span class="case-tag">Mystery Shoppers</span>
+    </div>
+    <div class="case-metric">
+      <span class="case-metric-num">+100</span>
+      <span class="case-metric-text">clientes corporativos atendidos</span>
+    </div>
+  </div>
+  <div class="case-right case-right--orange">
+    <div class="case-right-content">
+      <div class="case-right-kpi">+100</div>
+      <div class="case-right-kpi-text">clientes corporativos</div>
+      <div class="case-right-divider"></div>
+      <ul class="case-right-bullets">
+        <li>Focus groups en c&aacute;mara Gesell</li>
+        <li>Mystery shoppers profesionales</li>
+        <li>Estudios cuantitativos cara a cara</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ S08 — CASO ESTRATEGIA (PROOF) ═══ -->
+<section class="S" id="s8">
+  <div class="case-left case--cyan">
+    <div class="case-label">Estrategia</div>
+    <h2 class="case-title">Consultor&iacute;a e inteligencia de mercados para gobierno e industria</h2>
+    <p class="case-body">Modelos de negocio, planes de mercadotecnia y detecci&oacute;n de oportunidades para clientes institucionales.</p>
+    <div class="case-tags">
+      <span class="case-tag">Modelos de Negocio</span>
+      <span class="case-tag">Inteligencia</span>
+      <span class="case-tag">An&aacute;lisis Competitivo</span>
+    </div>
+    <div class="case-metric">
+      <span class="case-metric-num">+35</span>
+      <span class="case-metric-text">a&ntilde;os de experiencia multisectorial</span>
+    </div>
+  </div>
+  <div class="case-right case-right--cyan">
+    <div class="case-right-content">
+      <div class="case-right-kpi">+35</div>
+      <div class="case-right-kpi-text">a&ntilde;os de experiencia multisectorial</div>
+      <div class="case-right-divider"></div>
+      <ul class="case-right-bullets">
+        <li>Modelos de negocio estrat&eacute;gicos</li>
+        <li>Inteligencia competitiva avanzada</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ S09 — CASO INMOBILIARIO (PROOF) ═══ -->
+<section class="S" id="s9">
+  <div class="case-left case--coral">
+    <div class="case-label">Inmobiliario</div>
+    <h2 class="case-title">Factibilidad para desarrollos habitacionales, usos mixtos e industriales</h2>
+    <p class="case-body">An&aacute;lisis de oferta y demanda, absorci&oacute;n hist&oacute;rica y benchmarking para proyectos en la ZMM.</p>
+    <div class="case-tags">
+      <span class="case-tag">Factibilidad</span>
+      <span class="case-tag">Oferta y Demanda</span>
+      <span class="case-tag">Benchmarking</span>
+    </div>
+    <div class="case-metric">
+      <span class="case-metric-num">+100</span>
+      <span class="case-metric-text">proyectos inmobiliarios atendidos</span>
+    </div>
+  </div>
+  <div class="case-right case-right--coral">
+    <div class="case-right-content">
+      <div class="case-right-kpi">+100</div>
+      <div class="case-right-kpi-text">proyectos inmobiliarios</div>
+      <div class="case-right-divider"></div>
+      <ul class="case-right-bullets">
+        <li>Zona Metropolitana de Monterrey</li>
+        <li>Habitacional, mixto e industrial</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ S10 — CLIENTES (PROOF) ═══ -->
+<section class="S" id="s10">
+  <div class="s10-header">
+    <h2 class="s10-title"><span>Clientes</span>Empresas que conf&iacute;an<br>en nosotros</h2>
+    <div class="s10-stats">
+      <div class="s10-stat-block">
+        <div class="s10-stat-num grad-text">+100</div>
+        <div class="s10-stat-text">clientes corporativos</div>
+      </div>
+      <div class="s10-stat-block">
+        <div class="s10-stat-num grad-text">8</div>
+        <div class="s10-stat-text">sectores de industria</div>
+      </div>
+    </div>
+  </div>
+  <!-- Top tier -->
+  <div class="s10-top">
+    <div class="s10-top-chip">Nestl&eacute;</div>
+    <div class="s10-top-chip">PEMEX</div>
+    <div class="s10-top-chip">Walmart</div>
+    <div class="s10-top-chip">Heineken</div>
+    <div class="s10-top-chip">Nissan</div>
+    <div class="s10-top-chip">Ternium</div>
+    <div class="s10-top-chip">Grupo Xcaret</div>
+    <div class="s10-top-chip">Tec de Monterrey</div>
+  </div>
+  <!-- All clients -->
+  <div class="s10-grid">
+    <div class="s10-chip">SEDENA</div>
+    <div class="s10-chip">Consorcio ARA</div>
+    <div class="s10-chip">Commosa</div>
+    <div class="s10-chip">Areya</div>
+    <div class="s10-chip">Daltile</div>
+    <div class="s10-chip">Transpais</div>
+    <div class="s10-chip">Grupo Senda</div>
+    <div class="s10-chip">Termogas</div>
+    <div class="s10-chip">Landus</div>
+    <div class="s10-chip">Ruba</div>
+    <div class="s10-chip">Desarrollos Delta</div>
+    <div class="s10-chip">Dimex Capital</div>
+    <div class="s10-chip">Marfil</div>
+    <div class="s10-chip">Casas GEO</div>
+    <div class="s10-chip">Alora</div>
+    <div class="s10-chip">Grupo Salinas</div>
+    <div class="s10-chip">Javer</div>
+    <div class="s10-chip">Condocasa</div>
+    <div class="s10-chip">Proeza</div>
+    <div class="s10-chip">Gob. de Nuevo Le&oacute;n</div>
+    <div class="s10-chip">GP Vivienda</div>
+    <div class="s10-chip">URBIS Internacional</div>
+    <div class="s10-chip">Afirme</div>
+    <div class="s10-chip">S-Mart</div>
+    <div class="s10-chip">Grupo Fin. BASE</div>
+    <div class="s10-chip">Christus Muguerza</div>
+    <div class="s10-chip">Rollins</div>
+    <div class="s10-chip">Mauser Packaging</div>
+    <div class="s10-chip">TSF</div>
+    <div class="s10-chip">Turismo Edo. N.L.</div>
+    <div class="s10-chip">Soy RUMI</div>
+    <div class="s10-chip">Cl&iacute;nicas del Az&uacute;car</div>
+  </div>
+</section>
+
+<!-- ═══ S11 — CONTACTO / CTA (HERO) ═══ -->
+<section class="S" id="s11">
+  <div class="s11-bar"></div>
+  <div class="s11-wrap">
+    <div class="s11-logo">
+      <svg viewBox="0 0 48 56" fill="none" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="18" cy="15" r="10.5" stroke="#E8862F" stroke-width="5" stroke-dasharray="57 9" stroke-dashoffset="-12"/>
+        <circle cx="26" cy="9" r="1.8" fill="#E8586D"/>
+        <circle cx="30" cy="28" r="8.5" stroke="#E8586D" stroke-width="4" stroke-dasharray="46 7.4" stroke-dashoffset="14"/>
+        <circle cx="16" cy="41" r="11.5" stroke="#00A8E8" stroke-width="5.5" stroke-dasharray="63 9.3" stroke-dashoffset="-18"/>
+      </svg>
+      <div class="s11-logo-text">INGENIO<span>MARKETING</span></div>
+    </div>
+    <h2 class="s11-title">Trabajemos juntos</h2>
+    <p class="s11-quote">&ldquo;Si no tienes la informaci&oacute;n que necesitas para tomar decisiones sabias, busca a alguien que s&iacute; la tenga.&rdquo;</p>
+    <div class="s11-contacts">
+      <div class="s11-contact">
+        <div class="s11-contact-label">Email</div>
+        <div class="s11-contact-value">maritza@ingeniomarketing.com.mx</div>
+      </div>
+      <div class="s11-contact">
+        <div class="s11-contact-label">Tel&eacute;fono / WhatsApp</div>
+        <div class="s11-contact-value">+52 811 279 310</div>
+      </div>
+      <div class="s11-contact">
+        <div class="s11-contact-label">Web</div>
+        <div class="s11-contact-value">ingeniomarketing.com.mx</div>
+      </div>
+    </div>
+  </div>
+  <div class="s11-footer">&copy; 2026 Ingenio Marketing. Todos los derechos reservados.</div>
+</section>
+
+</div>
+
+<div class="nav-hint">&#8593; &#8595; Navegar</div>
+<script>
+// Auto-scale slides to fit viewport
+function scaleSlides(){
+  const W=1920,H=1080;
+  const vw=window.innerWidth,vh=window.innerHeight;
+  const s=Math.min(vw/W,vh/H,.95);
+  document.querySelectorAll('.S').forEach(function(el){
+    el.style.transform='scale('+s+')';
+    el.style.transformOrigin='top center';
+    el.style.marginBottom=-(H*(1-s))+'px';
+  });
+  document.querySelector('.deck').style.gap=(16*s)+'px';
+}
+scaleSlides();
+window.addEventListener('resize',scaleSlides);
+
+// Keyboard navigation
+document.addEventListener('keydown',function(e){
+  const S=document.querySelectorAll('.S');
+  const rects=Array.from(S).map(function(s){return s.getBoundingClientRect()});
+  let cur=0;
+  rects.forEach(function(r,i){if(r.top<window.innerHeight/2)cur=i});
+  if(e.key==='ArrowDown'||e.key==='PageDown'){e.preventDefault();S[Math.min(cur+1,S.length-1)].scrollIntoView({behavior:'smooth',block:'start'})}
+  if(e.key==='ArrowUp'||e.key==='PageUp'){e.preventDefault();S[Math.max(cur-1,0)].scrollIntoView({behavior:'smooth',block:'start'})}
+});
+</script>
+</body>
+</html>
