@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
+Disallow: /pitch-deck/
 Sitemap: https://www.ingeniomarketing.com.mx/sitemap.xml
