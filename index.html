@@ -3,23 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Ingenio Marketing — Consultoría e Investigación de Mercados en México</title>
-<meta name="description" content="Más de 35 años transformando datos en estrategia. Consultoría de marketing, imagen, investigación e inteligencia de mercados para empresas líderes en México.">
+<title>Ingenio Marketing · Consultoría e Investigación de Mercados en México</title>
+<meta name="description" content="Más de 35 años transformando datos en estrategia. Investigación e inteligencia de mercados, consultoría, imagen y desarrollo web para empresas líderes en todo México.">
 <link rel="canonical" href="https://www.ingeniomarketing.com.mx">
-<meta property="og:title" content="Ingenio Marketing — Consultoría e Investigación de Mercados">
-<meta property="og:description" content="Más de 35 años transformando datos en estrategia para empresas líderes en México.">
+<meta property="og:title" content="Ingenio Marketing · Consultoría e Investigación de Mercados">
+<meta property="og:description" content="Más de 35 años transformando datos en estrategia para empresas líderes en todo México.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.ingeniomarketing.com.mx">
 <meta property="og:locale" content="es_MX">
 <meta property="og:site_name" content="Ingenio Marketing">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ingenio Marketing — Consultoría e Investigación de Mercados">
-<meta name="twitter:description" content="Más de 35 años transformando datos en estrategia para empresas líderes en México.">
+<meta property="og:image" content="https://www.ingeniomarketing.com.mx/images/og-cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.ingeniomarketing.com.mx/images/og-cover.jpg">
+<meta name="twitter:title" content="Ingenio Marketing · Consultoría e Investigación de Mercados">
+<meta name="twitter:description" content="Más de 35 años transformando datos en estrategia para empresas líderes en todo México.">
 <meta name="theme-color" content="#0F1A2E">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='12' cy='9' r='7' fill='none' stroke='%23E8862F' stroke-width='3'/%3E%3Ccircle cx='20' cy='16' r='5.5' fill='none' stroke='%23E8586D' stroke-width='2.5'/%3E%3Ccircle cx='11' cy='23' r='7.5' fill='none' stroke='%2300A8E8' stroke-width='3'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="images/hero.jpg" fetchpriority="high">
 <style>
 /* ══════════════════════════════════════
    DESIGN SYSTEM — Ingenio Marketing
@@ -37,6 +40,7 @@
   --max-w:1200px;--nav-h:72px;
   --ease-out:cubic-bezier(.16,1,.3,1);
   --ease-smooth:cubic-bezier(.4,0,.2,1);
+  --ease-spring:cubic-bezier(.32,.72,0,1);
 }
 html{scroll-behavior:smooth;font-size:16px}
 body{font-family:var(--font-body);color:var(--navy);background:var(--cream);overflow-x:hidden;-webkit-font-smoothing:antialiased}
@@ -55,12 +59,18 @@ ul{list-style:none}
 .grain{position:relative}
 .grain::after{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0}
 
-/* Scroll reveal */
-.rv{opacity:0;transform:translateY(32px);transition:opacity .7s var(--ease-out),transform .7s var(--ease-out)}
-.rv.vis{opacity:1;transform:translateY(0)}
+/* Scroll reveal — translateY + blur + opacity (spring) */
+.rv{opacity:0;transform:translateY(28px);filter:blur(8px);transition:opacity .7s var(--ease-spring),transform .7s var(--ease-spring),filter .7s var(--ease-spring)}
+.rv.vis{opacity:1;transform:translateY(0);filter:blur(0)}
+
+/* Focus-visible (a11y) */
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:4px}
+.process :focus-visible,.contact :focus-visible,.mvv :focus-visible,.hero :focus-visible{outline-color:var(--coral)}
 
 /* Buttons */
-.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:700;font-size:.88rem;padding:16px 36px;border-radius:60px;letter-spacing:.2px;transition:all .3s var(--ease-out);cursor:pointer;border:2px solid transparent}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:700;font-size:.88rem;padding:16px 36px;border-radius:60px;letter-spacing:.2px;transition:all .3s var(--ease-spring);cursor:pointer;border:2px solid transparent}
+.btn:active{transform:scale(.98)}
+.btn-primary:active{transform:translateY(-1px) scale(.98)}
 .btn-primary{background:var(--coral);color:#fff;border-color:var(--coral);box-shadow:0 6px 24px rgba(232,88,109,.25)}
 .btn-primary:hover{background:var(--coral-dark);border-color:var(--coral-dark);transform:translateY(-3px);box-shadow:0 12px 36px rgba(232,88,109,.35)}
 .btn-outline-light{background:transparent;color:rgba(255,255,255,.8);border-color:rgba(255,255,255,.18)}
@@ -73,6 +83,9 @@ ul{list-style:none}
 .section-sub{font-size:1.1rem;color:var(--gray-400);line-height:1.7;max-width:620px}
 .text-center{text-align:center}
 .mx-auto{margin-left:auto;margin-right:auto}
+/* Typographic polish */
+.hero h1,.section-title,.contact-info h2,.mvv-card-title,.case-body h3,.service-card h3{text-wrap:balance}
+.hero-sub,.section-sub,.mvv-card-text,.case-body p,.about-text p{text-wrap:pretty}
 
 /* ══════════════════════════════════════
    NAVBAR
@@ -99,8 +112,10 @@ ul{list-style:none}
 /* ══════════════════════════════════════
    HERO — Asymmetric Editorial
    ══════════════════════════════════════ */
-.hero{background:var(--navy);overflow:hidden;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:calc(var(--nav-h) + 60px) 0 48px}
+.hero{background:var(--navy);overflow:hidden;min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;justify-content:center;padding:calc(var(--nav-h) + 60px) 0 48px}
 .hero-bg{position:absolute;inset:0;overflow:hidden}
+.hero-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(.4) brightness(.55) contrast(1.05)}
+.hero-bg .wash{position:absolute;inset:0;background:linear-gradient(115deg,rgba(15,26,46,.95),rgba(15,26,46,.8) 55%,rgba(27,42,74,.72))}
 .hero-bg::before{content:'';position:absolute;top:-20%;right:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(0,168,232,.1) 0%,transparent 65%);border-radius:50%}
 .hero-bg::after{content:'';position:absolute;bottom:-15%;left:-8%;width:500px;height:500px;background:radial-gradient(circle,rgba(232,88,109,.07) 0%,transparent 65%);border-radius:50%}
 .hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
@@ -108,7 +123,10 @@ ul{list-style:none}
 .hero-label{font-family:var(--font-display);font-size:.72rem;font-weight:600;letter-spacing:3.5px;text-transform:uppercase;color:var(--cyan);margin-bottom:28px;opacity:.7}
 .hero h1{font-family:var(--font-display);font-size:4.2rem;font-weight:800;color:#fff;line-height:1.05;margin-bottom:28px;letter-spacing:-1.5px}
 .hero h1 em{font-style:normal;background:linear-gradient(135deg,var(--coral),var(--orange));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.hero-sub{font-size:1.12rem;color:rgba(255,255,255,.45);line-height:1.75;max-width:520px;margin-bottom:44px}
+.hero-sub{font-size:1.12rem;color:rgba(255,255,255,.45);line-height:1.75;max-width:520px;margin-bottom:28px}
+.hero-trust{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:40px}
+.hero-trust li{font-family:var(--font-display);font-size:.72rem;font-weight:600;letter-spacing:.5px;color:rgba(255,255,255,.6);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:50px;padding:8px 16px}
+.hero-trust li:first-child{color:var(--cyan);background:rgba(0,168,232,.08);border-color:rgba(0,168,232,.25)}
 .hero-ctas{display:flex;gap:16px;flex-wrap:wrap}
 
 /* Decorative circles — logo motif */
@@ -129,32 +147,30 @@ ul{list-style:none}
 @keyframes pulse{0%,100%{opacity:.25;transform:scaleY(.5)}50%{opacity:1;transform:scaleY(1)}}
 
 /* ══════════════════════════════════════
-   PROOF BAR (marquee)
+   PROOF BAR (client grid)
    ══════════════════════════════════════ */
-.proof{background:var(--white);border-bottom:1px solid var(--cream-dark);padding:20px 0;overflow:hidden}
-.proof-label{text-align:center;font-size:.68rem;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--gray-400);margin-bottom:14px;font-family:var(--font-display)}
-.marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-.marquee-track{display:flex;gap:56px;width:max-content;animation:marquee 45s linear infinite}
-.marquee-track:hover{animation-play-state:paused}
-.marquee-track span{font-family:var(--font-display);font-size:.9rem;font-weight:700;color:var(--gray-400);letter-spacing:1px;white-space:nowrap;text-transform:uppercase;position:relative}
-.marquee-track span+span::before{content:'';position:absolute;left:-28px;top:50%;width:4px;height:4px;border-radius:50%;background:var(--cream-dark);transform:translateY(-50%)}
-@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.proof{background:var(--white);border-bottom:1px solid var(--cream-dark);padding:32px 0 36px;overflow:hidden}
+.proof-label{text-align:center;font-size:.68rem;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--gray-400);margin-bottom:24px;font-family:var(--font-display)}
+.client-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px 28px;max-width:var(--max-w);margin:0 auto;padding:0 24px}
+.client-grid span{font-family:var(--font-display);font-size:.8rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--gray-400);text-align:center;padding:6px 4px;transition:color .25s var(--ease-spring)}
+.client-grid span:hover{color:var(--navy)}
+@media(max-width:480px){.client-grid{grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:10px 16px}.client-grid span{font-size:.72rem}}
 
 /* ══════════════════════════════════════
    SERVICES — Color-coded cards
    ══════════════════════════════════════ */
-.services{background:var(--cream);padding:140px 0}
+.services{background:radial-gradient(120% 80% at 50% -10%,#FFFDFB,var(--cream));padding:140px 0}
 .services-header{text-align:center;margin-bottom:72px}
 .services-header .section-sub{margin:0 auto}
 .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.service-card{--card-accent:var(--cyan);background:var(--white);border:1px solid var(--cream-dark);border-left:3px solid var(--card-accent);border-radius:2px 16px 16px 2px;padding:36px 32px;transition:transform .35s var(--ease-out),box-shadow .35s,border-color .35s;position:relative;overflow:hidden}
+.service-card{--card-accent:var(--cyan);background:var(--white);border:1px solid var(--cream-dark);border-left:3px solid var(--card-accent);border-radius:2px 16px 16px 2px;padding:36px 32px;transition:transform .35s var(--ease-spring),box-shadow .35s,border-color .35s;position:relative;overflow:hidden}
 .service-card:nth-child(1){--card-accent:var(--orange)}
 .service-card:nth-child(2){--card-accent:var(--cyan)}
 .service-card:nth-child(3){--card-accent:var(--coral)}
 .service-card:nth-child(4){--card-accent:var(--cyan)}
 .service-card:nth-child(5){--card-accent:var(--orange)}
 .service-card:nth-child(6){--card-accent:var(--coral)}
-.service-card:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(15,26,46,.08),0 0 0 1px var(--card-accent);border-color:transparent}
+.service-card:hover{transform:translateY(-6px);box-shadow:0 1px 2px rgba(15,26,46,.05),0 14px 30px rgba(15,26,46,.07),0 28px 60px rgba(15,26,46,.06),0 0 0 1px var(--card-accent);border-color:transparent}
 .service-num{font-family:var(--font-display);font-size:.7rem;font-weight:700;color:var(--card-accent);letter-spacing:2px;margin-bottom:16px;display:block;transition:transform .3s var(--ease-out)}
 .service-card:hover .service-num{transform:translateX(4px)}
 .service-card h3{font-family:var(--font-display);font-size:1.15rem;font-weight:700;color:var(--navy);margin-bottom:10px;line-height:1.3}
@@ -162,6 +178,15 @@ ul{list-style:none}
 .service-includes{display:flex;flex-direction:column;gap:8px}
 .service-includes li{font-size:.82rem;color:var(--gray-400);display:flex;align-items:center;gap:8px}
 .service-includes li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--card-accent);flex-shrink:0;opacity:.6}
+/* Featured wide service card (Diseño y Desarrollo Web) */
+.service-card-wide{grid-column:1/-1;--card-accent:var(--cyan);display:grid;grid-template-columns:1.05fr 1fr;gap:24px 56px;align-items:center;background:linear-gradient(180deg,#fff,#FCFBF9)}
+.service-card-wide .service-num{margin-bottom:12px}
+.service-card-wide h3{font-size:1.5rem;margin-bottom:12px}
+.service-card-wide>.service-wide-main>p{font-size:.95rem;margin-bottom:0}
+.service-wide-list{display:grid;grid-template-columns:1fr 1fr;gap:12px 24px}
+.service-wide-list li{font-size:.88rem}
+.service-badge{position:absolute;top:24px;right:24px;font-family:var(--font-display);font-size:.6rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--cyan);background:rgba(0,168,232,.1);border:1px solid rgba(0,168,232,.25);padding:5px 13px;border-radius:50px}
+@media(max-width:768px){.service-card-wide{grid-template-columns:1fr;gap:20px}}
 
 /* ══════════════════════════════════════
    PROCESS — Dark + Timeline
@@ -187,10 +212,15 @@ ul{list-style:none}
 .cases-header{text-align:center;margin-bottom:72px}
 .cases-header .section-sub{margin:0 auto}
 .cases-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.case-card{border:1px solid var(--cream-dark);border-radius:16px;overflow:hidden;transition:transform .35s var(--ease-out),box-shadow .35s}
-.case-card:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(15,26,46,.08)}
+.case-card{border:1px solid var(--cream-dark);border-radius:16px 16px 16px 4px;overflow:hidden;transition:transform .35s var(--ease-spring),box-shadow .35s}
+.case-card:hover{transform:translateY(-6px);box-shadow:0 1px 2px rgba(15,26,46,.05),0 14px 30px rgba(15,26,46,.07),0 28px 60px rgba(15,26,46,.06)}
 .case-visual{height:190px;background:var(--navy);position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.case-visual::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 100%)}
+.case-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05) brightness(.95);z-index:0;transition:transform .5s var(--ease-spring)}
+.case-card:hover .case-visual img{transform:scale(1.05)}
+.case-visual::before{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(150deg,rgba(15,26,46,.82),rgba(15,26,46,.5)),radial-gradient(120% 100% at 100% 0%,var(--accent-tint,rgba(0,168,232,.45)),transparent 60%)}
+.case-card:nth-child(1) .case-visual{--accent-tint:rgba(232,134,47,.42)}
+.case-card:nth-child(2) .case-visual{--accent-tint:rgba(0,168,232,.42)}
+.case-card:nth-child(3) .case-visual{--accent-tint:rgba(232,88,109,.42)}
 .case-visual svg{position:relative;z-index:1;opacity:.1}
 .case-tag{position:absolute;top:16px;left:16px;z-index:2;font-family:var(--font-display);font-size:.62rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:6px 16px;border-radius:50px}
 .case-card:nth-child(1) .case-tag{color:var(--orange);background:rgba(232,134,47,.12)}
@@ -200,23 +230,40 @@ ul{list-style:none}
 .case-body h3{font-family:var(--font-display);font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:10px;line-height:1.3}
 .case-body p{font-size:.88rem;color:var(--gray-600);line-height:1.65;margin-bottom:18px}
 .case-metric{display:flex;align-items:baseline;gap:10px}
-.case-metric strong{font-family:var(--font-display);font-size:1.8rem;font-weight:800;letter-spacing:-1px;background:linear-gradient(135deg,var(--coral),var(--orange));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.case-metric strong{font-family:var(--font-display);font-size:1.8rem;font-weight:800;letter-spacing:-1px;font-variant-numeric:tabular-nums;background:linear-gradient(135deg,var(--coral),var(--orange));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .case-metric span{font-size:.8rem;color:var(--gray-400)}
 
 /* ══════════════════════════════════════
    ABOUT — Stats with gradient numbers
    ══════════════════════════════════════ */
-.about{background:var(--cream);padding:100px 0}
+.about{background:radial-gradient(100% 70% at 100% 0%,#FFFDFB,var(--cream));padding:100px 0}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
 .about-text p{font-size:1rem;color:var(--gray-600);line-height:1.8;margin-bottom:16px}
 .about-quote{position:relative;padding-left:24px;border-left:3px solid var(--cyan);margin-top:36px}
 .about-quote blockquote{font-family:var(--font-display);font-size:1.1rem;font-weight:600;color:var(--navy);line-height:1.5;font-style:italic}
 .about-stats{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.stat-card{background:var(--white);border:1px solid var(--cream-dark);border-radius:16px;padding:36px 28px;text-align:center;transition:transform .3s var(--ease-out),box-shadow .3s}
-.stat-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(15,26,46,.06)}
-.stat-num{font-family:var(--font-display);font-size:3.2rem;font-weight:800;line-height:1;margin-bottom:10px;letter-spacing:-2px;background:linear-gradient(135deg,var(--coral),var(--orange));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.stat-card{background:var(--white);border:1px solid var(--cream-dark);border-radius:16px;padding:36px 28px;text-align:center;transition:transform .3s var(--ease-spring),box-shadow .3s}
+.stat-card:nth-child(2n){border-radius:16px 4px 16px 16px}
+.stat-card:hover{transform:translateY(-4px);box-shadow:0 1px 2px rgba(15,26,46,.05),0 10px 24px rgba(15,26,46,.06),0 22px 48px rgba(15,26,46,.05)}
+.stat-num{font-family:var(--font-display);font-size:3.2rem;font-weight:800;line-height:1;margin-bottom:10px;letter-spacing:-2px;font-variant-numeric:tabular-nums;background:linear-gradient(135deg,var(--coral),var(--orange));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .stat-num span{font-size:1.5rem;letter-spacing:0}
 .stat-label{font-size:.85rem;color:var(--gray-400);line-height:1.4}
+
+/* ══════════════════════════════════════
+   COBERTURA NACIONAL (image band)
+   ══════════════════════════════════════ */
+.coverage-band{position:relative;min-height:360px;display:flex;align-items:center;overflow:hidden;background:var(--navy)}
+.coverage-band img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(.25) brightness(.72)}
+.coverage-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(15,26,46,.95) 0%,rgba(15,26,46,.72) 45%,rgba(15,26,46,.32) 100%)}
+.coverage-content{position:relative;z-index:2;color:#fff;padding-top:56px;padding-bottom:56px}
+.coverage-content .section-label{color:var(--orange);margin-bottom:14px}
+.coverage-content h2{font-family:var(--font-display);font-size:2.6rem;font-weight:800;letter-spacing:-.5px;line-height:1.05;margin-bottom:16px}
+.coverage-content p{font-size:1.05rem;color:rgba(255,255,255,.62);line-height:1.65;max-width:540px}
+@media(max-width:768px){
+  .coverage-band{min-height:300px}
+  .coverage-content h2{font-size:2rem}
+  .coverage-overlay{background:linear-gradient(90deg,rgba(15,26,46,.96),rgba(15,26,46,.78))}
+}
 
 /* ══════════════════════════════════════
    FAQ
@@ -259,6 +306,7 @@ details[open] .faq-icon::after{opacity:.5}
 .social-icon svg{width:18px;height:18px;fill:rgba(255,255,255,.45)}
 .contact-wa{display:inline-flex;align-items:center;gap:10px;margin-top:36px;background:#25D366;color:#fff;font-family:var(--font-display);font-weight:700;font-size:.88rem;padding:15px 30px;border-radius:60px;transition:all .25s var(--ease-out);box-shadow:0 4px 20px rgba(37,211,102,.2)}
 .contact-wa:hover{background:#1fb855;transform:translateY(-3px);box-shadow:0 8px 32px rgba(37,211,102,.3)}
+.contact-wa:active{transform:scale(.98)}
 .contact-wa svg{width:20px;height:20px;fill:#fff}
 
 /* Form */
@@ -275,6 +323,7 @@ details[open] .faq-icon::after{opacity:.5}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .form-submit{width:100%;background:var(--coral);color:#fff;font-family:var(--font-display);font-weight:700;font-size:.9rem;padding:15px;border:none;border-radius:10px;cursor:pointer;letter-spacing:.2px;transition:background .25s,transform .2s,box-shadow .25s;margin-top:10px;box-shadow:0 4px 16px rgba(232,88,109,.2)}
 .form-submit:hover{background:var(--coral-dark);transform:translateY(-2px);box-shadow:0 8px 28px rgba(232,88,109,.3)}
+.form-submit:active{transform:scale(.98)}
 .form-submit:disabled{opacity:.5;cursor:not-allowed;transform:none}
 .form-msg{margin-top:14px;font-size:.85rem;text-align:center;display:none}
 .form-msg.success{color:#25D366;display:block}
@@ -300,6 +349,7 @@ details[open] .faq-icon::after{opacity:.5}
    ══════════════════════════════════════ */
 .wa-float{position:fixed;bottom:24px;right:24px;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(37,211,102,.35);z-index:999;transition:transform .3s var(--ease-out),box-shadow .3s}
 .wa-float:hover{transform:scale(1.1);box-shadow:0 8px 28px rgba(37,211,102,.45)}
+.wa-float:active{transform:scale(1.02)}
 .wa-float svg{width:28px;height:28px;fill:#fff}
 
 /* ══════════════════════════════════════
@@ -316,7 +366,7 @@ details[open] .faq-icon::after{opacity:.5}
 
 /* Misión + Visión — Duo cards */
 .mvv-duo{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-bottom:72px;position:relative;z-index:2}
-.mvv-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:20px;padding:44px 40px;position:relative;overflow:hidden;transition:transform .35s var(--ease-out),box-shadow .35s,border-color .35s}
+.mvv-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:20px;padding:44px 40px;position:relative;overflow:hidden;transition:transform .35s var(--ease-spring),box-shadow .35s,border-color .35s}
 .mvv-card:hover{transform:translateY(-5px);box-shadow:0 24px 64px rgba(0,0,0,.25);border-color:rgba(255,255,255,.12)}
 .mvv-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:20px 20px 0 0}
 .mvv-mision::before{background:linear-gradient(90deg,var(--orange),var(--coral))}
@@ -426,6 +476,15 @@ details[open] .faq-icon::after{opacity:.5}
   .contact-form{padding:24px 20px}
   .contact-info h2{font-size:2rem}
 }
+
+/* ══════════════════════════════════════
+   REDUCED MOTION (a11y)
+   ══════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .rv{opacity:1!important;transform:none!important;filter:none!important}
+  .deco-circle,.scroll-hint span{animation:none!important}
+}
 </style>
 </head>
 <body>
@@ -468,13 +527,21 @@ details[open] .faq-icon::after{opacity:.5}
 
 <!-- HERO -->
 <section class="hero grain" id="inicio">
-  <div class="hero-bg"></div>
+  <div class="hero-bg">
+    <img src="images/hero.jpg" alt="" aria-hidden="true" width="1920" height="1280" fetchpriority="high" decoding="async">
+    <span class="wash"></span>
+  </div>
   <div class="container">
     <div class="hero-inner">
       <div class="hero-content">
-        <p class="hero-label">Marketing · Imagen · Investigación · Inteligencia de Mercados</p>
+        <p class="hero-label">Investigación · Inteligencia de Mercados · Consultoría · Desarrollo Web</p>
         <h1>Transformamos datos en <em>decisiones que impulsan</em> tu negocio</h1>
         <p class="hero-sub">Más de 35 años ayudando a empresas líderes en México a entender su mercado, superar a la competencia y crecer con estrategia.</p>
+        <ul class="hero-trust">
+          <li>Cobertura nacional</li>
+          <li>+100 clientes corporativos</li>
+          <li>8 sectores de industria</li>
+        </ul>
         <div class="hero-ctas">
           <a href="https://wa.me/528112793106?text=Hola%2C%20me%20interesa%20una%20consulta%20sobre%20sus%20servicios." class="btn btn-primary" data-event="hero_cta_whatsapp">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.025.506 3.934 1.395 5.608L.048 23.708a.6.6 0 00.735.728l5.956-1.561A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.6a9.563 9.563 0 01-4.972-1.39l-.352-.212-3.54.928.944-3.453-.233-.37A9.56 9.56 0 012.4 12 9.6 9.6 0 0112 2.4 9.6 9.6 0 0121.6 12 9.6 9.6 0 0112 21.6z"/></svg>
@@ -503,11 +570,8 @@ details[open] .faq-icon::after{opacity:.5}
 <!-- PROOF BAR -->
 <section class="proof" aria-label="Clientes corporativos">
   <p class="proof-label">Más de 100 clientes corporativos confían en nosotros</p>
-  <div class="marquee">
-    <div class="marquee-track">
-      <span>SEDENA</span><span>Consorcio ARA</span><span>Commosa</span><span>Nestlé</span><span>Areya</span><span>Daltile</span><span>Transpais</span><span>Grupo Senda</span><span>Termogas</span><span>Landus</span><span>Ruba</span><span>Desarrollos Delta</span><span>Nissan</span><span>Dimex Capital</span><span>Marfil</span><span>Casas GEO</span><span>Alora</span><span>Grupo Salinas</span><span>PEMEX</span><span>Javer</span><span>Condocasa</span><span>Proeza</span><span>Gob. de Nuevo León</span><span>GP Vivienda</span><span>URBIS Internacional</span><span>Afirme</span><span>Walmart</span><span>S-Mart</span><span>Grupo Financiero BASE</span><span>Ternium</span><span>Christus Muguerza</span><span>Rollins</span><span>Heineken</span><span>Grupo Xcaret</span><span>Mauser Packaging Solutions</span><span>Tec de Monterrey (ITESM)</span><span>TSF</span><span>Turismo Edo. de Nuevo León</span><span>Soy RUMI</span><span>Clínicas del Azúcar</span>
-      <span>SEDENA</span><span>Consorcio ARA</span><span>Commosa</span><span>Nestlé</span><span>Areya</span><span>Daltile</span><span>Transpais</span><span>Grupo Senda</span><span>Termogas</span><span>Landus</span><span>Ruba</span><span>Desarrollos Delta</span><span>Nissan</span><span>Dimex Capital</span><span>Marfil</span><span>Casas GEO</span><span>Alora</span><span>Grupo Salinas</span><span>PEMEX</span><span>Javer</span><span>Condocasa</span><span>Proeza</span><span>Gob. de Nuevo León</span><span>GP Vivienda</span><span>URBIS Internacional</span><span>Afirme</span><span>Walmart</span><span>S-Mart</span><span>Grupo Financiero BASE</span><span>Ternium</span><span>Christus Muguerza</span><span>Rollins</span><span>Heineken</span><span>Grupo Xcaret</span><span>Mauser Packaging Solutions</span><span>Tec de Monterrey (ITESM)</span><span>TSF</span><span>Turismo Edo. de Nuevo León</span><span>Soy RUMI</span><span>Clínicas del Azúcar</span>
-    </div>
+  <div class="client-grid">
+    <span>SEDENA</span><span>Consorcio ARA</span><span>Commosa</span><span>Nestlé</span><span>Areya</span><span>Daltile</span><span>Transpais</span><span>Grupo Senda</span><span>Termogas</span><span>Landus</span><span>Ruba</span><span>Desarrollos Delta</span><span>Nissan</span><span>Dimex Capital</span><span>Marfil</span><span>Casas GEO</span><span>Alora</span><span>Grupo Salinas</span><span>PEMEX</span><span>Javer</span><span>Condocasa</span><span>Proeza</span><span>Gob. de Nuevo León</span><span>GP Vivienda</span><span>URBIS Internacional</span><span>Afirme</span><span>Walmart</span><span>S-Mart</span><span>Grupo Financiero BASE</span><span>Ternium</span><span>Christus Muguerza</span><span>Rollins</span><span>Heineken</span><span>Grupo Xcaret</span><span>Mauser Packaging Solutions</span><span>Tec de Monterrey (ITESM)</span><span>TSF</span><span>Turismo Edo. de Nuevo León</span><span>Soy RUMI</span><span>Clínicas del Azúcar</span>
   </div>
 </section>
 
@@ -586,6 +650,20 @@ details[open] .faq-icon::after{opacity:.5}
           <li>Detección de oportunidades</li>
         </ul>
       </div>
+      <div class="service-card service-card-wide rv">
+        <span class="service-badge">Nuevo</span>
+        <div class="service-wide-main">
+          <span class="service-num">07</span>
+          <h3>Diseño y Desarrollo Web</h3>
+          <p>Diseñamos y desarrollamos sitios y aplicaciones web a la medida, con enfoque en estrategia, experiencia de usuario y resultados de negocio.</p>
+        </div>
+        <ul class="service-includes service-wide-list">
+          <li>Sitios web corporativos</li>
+          <li>Aplicaciones web a la medida</li>
+          <li>Landing pages de campaña</li>
+          <li>Diseño UX/UI y optimización</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
@@ -643,7 +721,7 @@ details[open] .faq-icon::after{opacity:.5}
       <div class="case-card rv">
         <div class="case-visual">
           <span class="case-tag">Consumo y Servicios</span>
-          <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width=".5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <img src="images/case-1.jpg" alt="Sesión de investigación de mercado con consumidores" width="800" height="520" loading="lazy" decoding="async">
         </div>
         <div class="case-body">
           <h3>Investigación de mercado cualitativa y cuantitativa para marcas líderes</h3>
@@ -657,25 +735,25 @@ details[open] .faq-icon::after{opacity:.5}
       <div class="case-card rv">
         <div class="case-visual">
           <span class="case-tag">Estrategia</span>
-          <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width=".5"><path d="M12 2L2 7h20L12 2z"/><rect x="4" y="9" width="16" height="11"/><path d="M8 9v11M12 9v11M16 9v11M2 20h20"/></svg>
+          <img src="images/case-2.jpg" alt="Reunión de consultoría y estrategia de negocio" width="800" height="520" loading="lazy" decoding="async">
         </div>
         <div class="case-body">
           <h3>Consultoría e inteligencia de mercados para sectores gobierno e industria</h3>
           <p>Modelos de negocio, planes de mercadotecnia, análisis del entorno competitivo y detección de oportunidades para clientes institucionales.</p>
           <div class="case-metric">
-            <strong>+35</strong>
-            <span>años de experiencia multisectorial</span>
+            <strong>+500</strong>
+            <span>estudios y consultorías entregados</span>
           </div>
         </div>
       </div>
       <div class="case-card rv">
         <div class="case-visual">
           <span class="case-tag">Inmobiliario</span>
-          <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width=".5"><rect x="3" y="10" width="7" height="11" rx="1"/><rect x="14" y="4" width="7" height="17" rx="1"/><path d="M5 14h3M5 17h3M16 8h3M16 11h3M16 14h3"/></svg>
+          <img src="images/case-3.jpg" alt="Desarrollo inmobiliario y estudio de factibilidad" width="800" height="520" loading="lazy" decoding="async">
         </div>
         <div class="case-body">
           <h3>Factibilidad para desarrollos habitacionales, usos mixtos e industriales</h3>
-          <p>Análisis de oferta y demanda, absorción histórica y real mensual, benchmarking y mayor y mejor uso para proyectos inmobiliarios en la ZMM.</p>
+          <p>Análisis de oferta y demanda, absorción histórica y real mensual, benchmarking y mayor y mejor uso para desarrollos inmobiliarios en las principales plazas de México.</p>
           <div class="case-metric">
             <strong>+100</strong>
             <span>proyectos inmobiliarios atendidos</span>
@@ -693,8 +771,8 @@ details[open] .faq-icon::after{opacity:.5}
       <div class="about-text rv">
         <p class="section-label">Nosotros</p>
         <h2 class="section-title">Información confiable para decisiones inteligentes</h2>
-        <p><strong>Ingenio Marketing</strong> surge del constante desarrollo inmobiliario con el objetivo de guiar a sus clientes a tomar las mejores decisiones. Hemos trabajado a lo largo de 35 años contribuyendo al desarrollo de nuestros clientes y a la solidez de sus marcas.</p>
-        <p>Apoyamos y asesoramos en temas de mercado, brindando información oportuna y confiable para que nuestros clientes se enfoquen en la construcción y desarrollo de sus proyectos. Nuestra experiencia abarca sectores como inmobiliario, consumo, retail, industria, gobierno, servicios financieros y energía.</p>
+        <p><strong>Ingenio Marketing</strong> nació para convertir la complejidad de los mercados en decisiones claras. A lo largo de más de tres décadas hemos acompañado a empresas de productos y servicios en su crecimiento, aportando información rigurosa que fortalece sus marcas y respalda sus inversiones en todo el país.</p>
+        <p>Apoyamos y asesoramos en temas de mercado, brindando información oportuna y confiable para que nuestros clientes se concentren en hacer crecer sus negocios. Nuestra experiencia abarca sectores como consumo, retail, industria, gobierno, servicios financieros, energía e inmobiliario.</p>
         <div class="about-quote">
           <blockquote>"Si no tienes la información que necesitas para tomar decisiones sabias, busca a alguien que sí la tenga."</blockquote>
         </div>
@@ -721,6 +799,17 @@ details[open] .faq-icon::after{opacity:.5}
   </div>
 </section>
 
+<!-- COBERTURA NACIONAL -->
+<section class="coverage-band" aria-label="Cobertura nacional">
+  <img src="images/cobertura.jpg" alt="Cobertura a nivel nacional en toda la República Mexicana" width="1600" height="540" loading="lazy" decoding="async">
+  <div class="coverage-overlay"></div>
+  <div class="coverage-content container">
+    <p class="section-label">Presencia</p>
+    <h2>Cobertura a nivel nacional</h2>
+    <p>Realizamos proyectos en toda la República Mexicana, con redes de campo en las principales ciudades del país y sede en el área metropolitana de Monterrey.</p>
+  </div>
+</section>
+
 <!-- MISSION, VISION & VALUES ══════════════════════════════════════ -->
 <section class="mvv grain" id="mision">
   <div class="container">
@@ -729,7 +818,7 @@ details[open] .faq-icon::after{opacity:.5}
     <div class="mvv-header rv text-center">
       <p class="section-label">Identidad</p>
       <h2 class="section-title">Quiénes somos y<br>hacia dónde vamos</h2>
-      <p class="section-sub mx-auto">Más de 35 años nos han dado claridad sobre nuestra razón de ser, nuestra aspiración de futuro y los principios que guían cada decisión y cada proyecto.</p>
+      <p class="section-sub mx-auto">Más de tres décadas nos han dado claridad sobre nuestra razón de ser, nuestra aspiración de futuro y los principios que guían cada decisión y cada proyecto.</p>
     </div>
 
     <!-- Misión + Visión -->
@@ -745,7 +834,7 @@ details[open] .faq-icon::after{opacity:.5}
         </div>
         <p class="mvv-card-label">Misión</p>
         <h3 class="mvv-card-title">El propósito de cada proyecto</h3>
-        <p class="mvv-card-text">Proveer información oportuna, confiable y estratégicamente accionable que permita a nuestros clientes tomar las mejores decisiones de negocio. A través de metodologías rigurosas de investigación de mercados, consultoría estratégica y una visión multisectorial forjada en más de 35 años, convertimos datos en el activo más valioso de cada organización.</p>
+        <p class="mvv-card-text">Proveer información oportuna, confiable y estratégicamente accionable que permita a nuestros clientes tomar las mejores decisiones de negocio. A través de metodologías rigurosas de investigación de mercados, consultoría estratégica y una visión multisectorial forjada a lo largo de más de tres décadas, convertimos datos en el activo más valioso de cada organización.</p>
       </div>
 
       <div class="mvv-card mvv-vision rv">
@@ -821,7 +910,7 @@ details[open] .faq-icon::after{opacity:.5}
           </svg>
         </div>
         <h4>Experiencia Multisectorial</h4>
-        <p>Más de 35 años en 8+ industrias nos permiten conectar aprendizajes, anticipar patrones y aportar perspectivas que van más allá del sector inmediato de cada cliente.</p>
+        <p>Más de tres décadas en 8+ industrias nos permiten conectar aprendizajes, anticipar patrones y aportar perspectivas que van más allá del sector inmediato de cada cliente.</p>
       </div>
 
       <div class="mvv-value-card rv">
@@ -850,7 +939,7 @@ details[open] .faq-icon::after{opacity:.5}
     <div class="faq-list">
       <details class="faq-item rv">
         <summary>¿Qué tipo de empresas atienden?<span class="faq-icon"></span></summary>
-        <div class="faq-answer">Trabajamos con empresas de todos los tamaños — desde startups hasta corporativos multinacionales. Nuestra experiencia abarca sectores como consumo, retail, industria, gobierno, servicios financieros, salud, inmobiliario y energía. Lo que nos une con nuestros clientes es la necesidad de tomar decisiones basadas en datos confiables.</div>
+        <div class="faq-answer">Trabajamos con empresas de todos los tamaños, desde startups hasta corporativos multinacionales. Nuestra experiencia abarca sectores como consumo, retail, industria, gobierno, servicios financieros, salud, inmobiliario y energía. Lo que nos une con nuestros clientes es la necesidad de tomar decisiones basadas en datos confiables.</div>
       </details>
       <details class="faq-item rv">
         <summary>¿Cuánto tarda un estudio de mercado típico?<span class="faq-icon"></span></summary>
@@ -858,7 +947,7 @@ details[open] .faq-icon::after{opacity:.5}
       </details>
       <details class="faq-item rv">
         <summary>¿En qué zonas geográficas operan?<span class="faq-icon"></span></summary>
-        <div class="faq-answer">Tenemos cobertura nacional con presencia principal en la zona metropolitana de Monterrey. Hemos realizado proyectos en toda la República Mexicana y contamos con redes de campo en las principales ciudades del país.</div>
+        <div class="faq-answer">Operamos en toda la República Mexicana. Coordinamos trabajo de campo en las principales ciudades del país a través de redes a nivel nacional. Nuestra sede se ubica en el área metropolitana de Monterrey (San Nicolás de los Garza, N.L.), desde donde dirigimos proyectos para clientes de todo México.</div>
       </details>
       <details class="faq-item rv">
         <summary>¿Cómo garantizan la confidencialidad de la información?<span class="faq-icon"></span></summary>
@@ -953,6 +1042,7 @@ details[open] .faq-icon::after{opacity:.5}
               <option value="factibilidad">Estudios de Factibilidad</option>
               <option value="imagen">Imagen y Marketing Global</option>
               <option value="especializados">Estudios Especializados</option>
+              <option value="web">Diseño y Desarrollo Web</option>
               <option value="otro">Otro</option>
             </select>
           </div>
@@ -985,7 +1075,7 @@ details[open] .faq-icon::after{opacity:.5}
         </svg>
         <div class="nav-logo-text" style="font-size:.85rem">INGENIO<span>MARKETING</span></div>
       </a>
-      <p>Más de 35 años brindando información oportuna y confiable para guiar a nuestros clientes a tomar las mejores decisiones.</p>
+      <p>Más de tres décadas brindando información oportuna y confiable para guiar a nuestros clientes a tomar las mejores decisiones.</p>
     </div>
     <div class="footer-col">
       <h4>Servicios</h4>
@@ -994,6 +1084,7 @@ details[open] .faq-icon::after{opacity:.5}
       <a href="#servicios">Consultoría Estratégica</a>
       <a href="#servicios">Estudios de Factibilidad</a>
       <a href="#servicios">Imagen y Marketing Global</a>
+      <a href="#servicios">Diseño y Desarrollo Web</a>
     </div>
     <div class="footer-col">
       <h4>Empresa</h4>
@@ -1013,7 +1104,7 @@ details[open] .faq-icon::after{opacity:.5}
   </div>
   <div class="footer-bottom">
     <p class="footer-copy">&copy; 2026 Ingenio Marketing. Todos los derechos reservados.</p>
-    <p class="footer-copy">Marketing · Imagen · Investigación de Mercados · Inteligencia de Mercados · Eventos</p>
+    <p class="footer-copy">Marketing · Investigación de Mercados · Inteligencia de Mercados · Desarrollo Web · Eventos</p>
   </div>
 </footer>
 
@@ -1049,11 +1140,12 @@ navMenu.querySelectorAll('a').forEach(link => {
   });
 });
 
-// Scroll reveal with stagger
+// Scroll reveal with stagger (respects reduced motion)
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry, i) => {
     if (entry.isIntersecting) {
-      setTimeout(() => entry.target.classList.add('vis'), i * 90);
+      setTimeout(() => entry.target.classList.add('vis'), reduceMotion ? 0 : i * 90);
       observer.unobserve(entry.target);
     }
   });
@@ -1114,7 +1206,7 @@ document.querySelectorAll('[data-event]').forEach(el => {
 
 <!-- Schema.org -->
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ProfessionalService","name":"Ingenio Marketing","alternateName":"Ingenio Marketing - a su alcance","description":"Consultoría de marketing, investigación e inteligencia de mercados con más de 35 años de experiencia en México. Especialistas en el sector inmobiliario, consumo, industria y gobierno.","url":"https://www.ingeniomarketing.com.mx","telephone":"+528112793106","email":"maritza@ingeniomarketing.com.mx","address":{"@type":"PostalAddress","streetAddress":"Valle de las Puentes","addressLocality":"San Nicolás de los Garza","addressRegion":"Nuevo León","addressCountry":"MX"},"areaServed":{"@type":"Country","name":"México"},"serviceType":["Investigación de Mercado","Inteligencia de Mercados","Consultoría Estratégica","Estudios de Factibilidad","Imagen y Marketing Global","Estudios Especializados"],"foundingDate":"1995"}
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"Ingenio Marketing","alternateName":"Ingenio Marketing - a su alcance","description":"Consultoría de marketing, investigación e inteligencia de mercados con más de 35 años de experiencia en México. Especialistas en el sector inmobiliario, consumo, industria y gobierno.","url":"https://www.ingeniomarketing.com.mx","telephone":"+528112793106","email":"maritza@ingeniomarketing.com.mx","address":{"@type":"PostalAddress","streetAddress":"Valle de las Puentes","addressLocality":"San Nicolás de los Garza","addressRegion":"Nuevo León","addressCountry":"MX"},"areaServed":{"@type":"Country","name":"México"},"serviceType":["Investigación de Mercado","Inteligencia de Mercados","Consultoría Estratégica","Estudios de Factibilidad","Imagen y Marketing Global","Estudios Especializados","Diseño y Desarrollo Web"],"foundingDate":"1990"}
 </script>
 
 <!-- GA4 — TODO: Reemplazar G-XXXXXXXXXX con tu Measurement ID -->
