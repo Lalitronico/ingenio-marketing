@@ -149,12 +149,14 @@ ul{list-style:none}
 /* ══════════════════════════════════════
    PROOF BAR (client grid)
    ══════════════════════════════════════ */
-.proof{background:var(--white);border-bottom:1px solid var(--cream-dark);padding:32px 0 36px;overflow:hidden}
-.proof-label{text-align:center;font-size:.68rem;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--gray-400);margin-bottom:24px;font-family:var(--font-display)}
-.client-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px 28px;max-width:var(--max-w);margin:0 auto;padding:0 24px}
-.client-grid span{font-family:var(--font-display);font-size:.8rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--gray-400);text-align:center;padding:6px 4px;transition:color .25s var(--ease-spring)}
-.client-grid span:hover{color:var(--navy)}
-@media(max-width:480px){.client-grid{grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:10px 16px}.client-grid span{font-size:.72rem}}
+.proof{background:linear-gradient(180deg,#FFFFFF 0%,#EAEEF4 100%);border-top:1px solid var(--cream-dark);border-bottom:1px solid var(--cream-dark);padding:54px 24px 62px;overflow:hidden}
+.proof-label{text-align:center;font-size:.68rem;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--gray-400);margin-bottom:30px;font-family:var(--font-display)}
+.proof-label strong{color:var(--coral);font-weight:700}
+.client-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--cream-dark);max-width:var(--max-w);margin:0 auto;border:1px solid var(--cream-dark);border-radius:18px;overflow:hidden;box-shadow:0 1px 2px rgba(15,26,46,.04),0 22px 50px rgba(15,26,46,.10)}
+.client-grid span{background:#fff;font-family:var(--font-display);font-size:.8rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--gray-400);text-align:center;padding:20px 14px;min-height:66px;display:flex;align-items:center;justify-content:center;transition:background .3s var(--ease-spring),color .3s var(--ease-spring),transform .3s var(--ease-spring),box-shadow .3s}
+.client-grid span:hover{background:var(--navy);color:#fff;transform:scale(1.06);position:relative;z-index:2;box-shadow:0 12px 30px rgba(15,26,46,.20)}
+@media(max-width:900px){.client-grid{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:560px){.client-grid{grid-template-columns:repeat(2,1fr)}.client-grid span{font-size:.74rem;padding:15px 10px;min-height:56px}}
 
 /* ══════════════════════════════════════
    SERVICES — Color-coded cards
@@ -384,7 +386,7 @@ details[open] .faq-icon::after{opacity:.5}
 .mvv-mision .mvv-card-label{color:var(--orange)}
 .mvv-vision .mvv-card-label{color:var(--cyan)}
 .mvv-card-title{font-family:var(--font-display);font-size:1.5rem;font-weight:800;color:#fff;margin-bottom:16px;line-height:1.2;letter-spacing:-.3px}
-.mvv-card-text{font-size:.97rem;color:rgba(255,255,255,.48);line-height:1.78}
+.mvv-card-text{font-size:.99rem;color:rgba(255,255,255,.6);line-height:1.78}
 
 /* Values intro */
 .mvv-values-intro{text-align:center;margin-bottom:44px;position:relative;z-index:2}
@@ -392,9 +394,19 @@ details[open] .faq-icon::after{opacity:.5}
 .mvv-values-title{font-family:var(--font-display);font-size:1.65rem;font-weight:800;color:#fff;margin-top:12px;letter-spacing:-.3px}
 
 /* Values grid */
-.mvv-values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;position:relative;z-index:2}
-.mvv-value-card{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:32px 28px;transition:transform .3s var(--ease-out),background .3s,border-color .3s}
-.mvv-value-card:hover{transform:translateY(-4px);background:rgba(255,255,255,.045);border-color:rgba(255,255,255,.1)}
+.mvv-values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.085);border:1px solid rgba(255,255,255,.09);border-radius:20px;overflow:hidden;position:relative;z-index:2;counter-reset:val}
+.mvv-value-card{background:rgba(20,32,56,.96);counter-increment:val;padding:40px 34px 38px;position:relative;overflow:hidden;transition:background .35s var(--ease-spring)}
+.mvv-value-card:hover{background:rgba(36,51,88,.85)}
+.mvv-value-card::after{content:counter(val,decimal-leading-zero);position:absolute;top:26px;right:28px;font-family:var(--font-display);font-size:2.1rem;font-weight:800;line-height:1;letter-spacing:-1px;opacity:.22;transition:opacity .35s var(--ease-spring)}
+.mvv-value-card:hover::after{opacity:.5}
+.mvv-value-card:nth-child(3n+1)::after{color:var(--orange)}
+.mvv-value-card:nth-child(3n+2)::after{color:var(--cyan)}
+.mvv-value-card:nth-child(3n)::after{color:var(--coral)}
+.mvv-value-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;transform:scaleY(0);transform-origin:top;transition:transform .4s var(--ease-spring)}
+.mvv-value-card:hover::before{transform:scaleY(1)}
+.mvv-value-card:nth-child(3n+1)::before{background:var(--orange)}
+.mvv-value-card:nth-child(3n+2)::before{background:var(--cyan)}
+.mvv-value-card:nth-child(3n)::before{background:var(--coral)}
 .mvv-value-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
 .mvv-value-icon svg{fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .mvv-value-card:nth-child(1) .mvv-value-icon{background:rgba(232,134,47,.1);border:1px solid rgba(232,134,47,.12)}
@@ -409,8 +421,8 @@ details[open] .faq-icon::after{opacity:.5}
 .mvv-value-card:nth-child(5) .mvv-value-icon svg{stroke:var(--cyan)}
 .mvv-value-card:nth-child(6) .mvv-value-icon{background:rgba(232,88,109,.1);border:1px solid rgba(232,88,109,.12)}
 .mvv-value-card:nth-child(6) .mvv-value-icon svg{stroke:var(--coral)}
-.mvv-value-card h4{font-family:var(--font-display);font-size:1rem;font-weight:700;color:#fff;margin-bottom:10px;line-height:1.3}
-.mvv-value-card p{font-size:.86rem;color:rgba(255,255,255,.38);line-height:1.68}
+.mvv-value-card h4{font-family:var(--font-display);font-size:1.08rem;font-weight:700;color:#fff;margin-bottom:11px;line-height:1.3}
+.mvv-value-card p{font-size:.89rem;color:rgba(255,255,255,.56);line-height:1.72}
 
 /* MVV Responsive */
 @media(max-width:1024px){
@@ -569,8 +581,8 @@ details[open] .faq-icon::after{opacity:.5}
 
 <!-- PROOF BAR -->
 <section class="proof" aria-label="Clientes corporativos">
-  <p class="proof-label">Más de 100 clientes corporativos confían en nosotros</p>
-  <div class="client-grid">
+  <p class="proof-label rv">Más de <strong>100 clientes corporativos</strong> confían en nosotros</p>
+  <div class="client-grid rv">
     <span>SEDENA</span><span>Consorcio ARA</span><span>Commosa</span><span>Nestlé</span><span>Areya</span><span>Daltile</span><span>Transpais</span><span>Grupo Senda</span><span>Termogas</span><span>Landus</span><span>Ruba</span><span>Desarrollos Delta</span><span>Nissan</span><span>Dimex Capital</span><span>Marfil</span><span>Casas GEO</span><span>Alora</span><span>Grupo Salinas</span><span>PEMEX</span><span>Javer</span><span>Condocasa</span><span>Proeza</span><span>Gob. de Nuevo León</span><span>GP Vivienda</span><span>URBIS Internacional</span><span>Afirme</span><span>Walmart</span><span>S-Mart</span><span>Grupo Financiero BASE</span><span>Ternium</span><span>Christus Muguerza</span><span>Rollins</span><span>Heineken</span><span>Grupo Xcaret</span><span>Mauser Packaging Solutions</span><span>Tec de Monterrey (ITESM)</span><span>TSF</span><span>Turismo Edo. de Nuevo León</span><span>Soy RUMI</span><span>Clínicas del Azúcar</span>
   </div>
 </section>
