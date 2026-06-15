@@ -152,11 +152,17 @@ ul{list-style:none}
 .proof{background:linear-gradient(180deg,#FFFFFF 0%,#EAEEF4 100%);border-top:1px solid var(--cream-dark);border-bottom:1px solid var(--cream-dark);padding:54px 24px 62px;overflow:hidden}
 .proof-label{text-align:center;font-size:.68rem;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--gray-400);margin-bottom:30px;font-family:var(--font-display)}
 .proof-label strong{color:var(--coral);font-weight:700}
-.client-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--cream-dark);max-width:var(--max-w);margin:0 auto;border:1px solid var(--cream-dark);border-radius:18px;overflow:hidden;box-shadow:0 1px 2px rgba(15,26,46,.04),0 22px 50px rgba(15,26,46,.10)}
-.client-grid span{background:#fff;font-family:var(--font-display);font-size:.8rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--gray-400);text-align:center;padding:20px 14px;min-height:66px;display:flex;align-items:center;justify-content:center;transition:background .3s var(--ease-spring),color .3s var(--ease-spring),transform .3s var(--ease-spring),box-shadow .3s}
-.client-grid span:hover{background:var(--navy);color:#fff;transform:scale(1.06);position:relative;z-index:2;box-shadow:0 12px 30px rgba(15,26,46,.20)}
-@media(max-width:900px){.client-grid{grid-template-columns:repeat(4,1fr)}}
-@media(max-width:560px){.client-grid{grid-template-columns:repeat(2,1fr)}.client-grid span{font-size:.74rem;padding:15px 10px;min-height:56px}}
+.client-marquee{position:relative;max-width:var(--max-w);margin:0 auto;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.client-rows{display:flex;flex-direction:column;gap:16px}
+.client-row{display:flex;width:max-content;animation:client-scroll var(--dur,60s) linear infinite;will-change:transform}
+.client-row.reverse{animation-direction:reverse}
+.client-marquee:hover .client-row,.client-marquee:focus-within .client-row{animation-play-state:paused}
+.client-track{display:flex;flex-shrink:0}
+.client-track span{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:.82rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--gray-400);background:#fff;border:1px solid var(--cream-dark);border-radius:50px;padding:14px 28px;margin-right:16px;white-space:nowrap;box-shadow:0 1px 2px rgba(15,26,46,.05);transition:background .3s var(--ease-spring),color .3s var(--ease-spring),border-color .3s var(--ease-spring),transform .3s var(--ease-spring),box-shadow .3s}
+.client-track span:hover{background:var(--navy);color:#fff;border-color:var(--navy);transform:translateY(-3px);box-shadow:0 14px 30px rgba(15,26,46,.20)}
+@keyframes client-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(max-width:560px){.client-track span{font-size:.76rem;padding:12px 20px;margin-right:12px}.client-rows{gap:12px}}
+@media(prefers-reduced-motion:reduce){.client-row{animation:none;flex-wrap:wrap;justify-content:center;width:auto}.client-track{flex-wrap:wrap;justify-content:center;width:auto}.client-track[aria-hidden="true"]{display:none}.client-marquee{-webkit-mask-image:none;mask-image:none}.client-track span{margin-bottom:12px}}
 
 /* ══════════════════════════════════════
    SERVICES — Color-coded cards
@@ -582,8 +588,21 @@ details[open] .faq-icon::after{opacity:.5}
 <!-- PROOF BAR -->
 <section class="proof" aria-label="Clientes corporativos">
   <p class="proof-label rv">Más de <strong>100 clientes corporativos</strong> confían en nosotros</p>
-  <div class="client-grid rv">
-    <span>SEDENA</span><span>Consorcio ARA</span><span>Commosa</span><span>Nestlé</span><span>Areya</span><span>Daltile</span><span>Transpais</span><span>Grupo Senda</span><span>Termogas</span><span>Landus</span><span>Ruba</span><span>Desarrollos Delta</span><span>Nissan</span><span>Dimex Capital</span><span>Marfil</span><span>Casas GEO</span><span>Alora</span><span>Grupo Salinas</span><span>PEMEX</span><span>Javer</span><span>Condocasa</span><span>Proeza</span><span>Gob. de Nuevo León</span><span>GP Vivienda</span><span>URBIS Internacional</span><span>Afirme</span><span>Walmart</span><span>S-Mart</span><span>Grupo Financiero BASE</span><span>Ternium</span><span>Christus Muguerza</span><span>Rollins</span><span>Heineken</span><span>Grupo Xcaret</span><span>Mauser Packaging Solutions</span><span>Tec de Monterrey (ITESM)</span><span>TSF</span><span>Turismo Edo. de Nuevo León</span><span>Soy RUMI</span><span>Clínicas del Azúcar</span>
+  <div class="client-marquee rv">
+    <div class="client-rows">
+      <div class="client-row" style="--dur:64s">
+        <div class="client-track"><span>SEDENA</span><span>Consorcio ARA</span><span>Commosa</span><span>Nestlé</span><span>Areya</span><span>Daltile</span><span>Transpais</span><span>Grupo Senda</span><span>Termogas</span><span>Landus</span><span>Ruba</span><span>Desarrollos Delta</span><span>Nissan</span><span>Dimex Capital</span></div>
+        <div class="client-track" aria-hidden="true"><span>SEDENA</span><span>Consorcio ARA</span><span>Commosa</span><span>Nestlé</span><span>Areya</span><span>Daltile</span><span>Transpais</span><span>Grupo Senda</span><span>Termogas</span><span>Landus</span><span>Ruba</span><span>Desarrollos Delta</span><span>Nissan</span><span>Dimex Capital</span></div>
+      </div>
+      <div class="client-row reverse" style="--dur:54s">
+        <div class="client-track"><span>Marfil</span><span>Casas GEO</span><span>Alora</span><span>Grupo Salinas</span><span>PEMEX</span><span>Javer</span><span>Condocasa</span><span>Proeza</span><span>Gob. de Nuevo León</span><span>GP Vivienda</span><span>URBIS Internacional</span><span>Afirme</span><span>Walmart</span></div>
+        <div class="client-track" aria-hidden="true"><span>Marfil</span><span>Casas GEO</span><span>Alora</span><span>Grupo Salinas</span><span>PEMEX</span><span>Javer</span><span>Condocasa</span><span>Proeza</span><span>Gob. de Nuevo León</span><span>GP Vivienda</span><span>URBIS Internacional</span><span>Afirme</span><span>Walmart</span></div>
+      </div>
+      <div class="client-row" style="--dur:72s">
+        <div class="client-track"><span>S-Mart</span><span>Grupo Financiero BASE</span><span>Ternium</span><span>Christus Muguerza</span><span>Rollins</span><span>Heineken</span><span>Grupo Xcaret</span><span>Mauser Packaging Solutions</span><span>Tec de Monterrey (ITESM)</span><span>TSF</span><span>Turismo Edo. de Nuevo León</span><span>Soy RUMI</span><span>Clínicas del Azúcar</span></div>
+        <div class="client-track" aria-hidden="true"><span>S-Mart</span><span>Grupo Financiero BASE</span><span>Ternium</span><span>Christus Muguerza</span><span>Rollins</span><span>Heineken</span><span>Grupo Xcaret</span><span>Mauser Packaging Solutions</span><span>Tec de Monterrey (ITESM)</span><span>TSF</span><span>Turismo Edo. de Nuevo León</span><span>Soy RUMI</span><span>Clínicas del Azúcar</span></div>
+      </div>
+    </div>
   </div>
 </section>
 
